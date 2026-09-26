@@ -112,8 +112,122 @@ export function toggleProduceBookmark(produceId) {
   return updated;
 }
 
+const GUEST_STORAGE_KEY = 'freshfind_guest_bookmarks_v2';
+
 /**
- * Save or update personal note for an item
+ * Normalizes notes for an item into an array of note objects
+ * Backwards compatible with legacy single-string notes
+ */
+export function normalizeNotes(rawNotes) {
+  if (!rawNotes) return [];
+  if (Array.isArray(rawNotes)) {
+    return rawNotes.map((n, idx) => {
+      if (typeof n === 'string') {
+        return {
+          id: `legacy_${idx}`,
+          text: n,
+          createdAt: 'Saved'
+        };
+      }
+      return n;
+    });
+  }
+  if (typeof rawNotes === 'string' && rawNotes.trim()) {
+    return [{
+      id: 'legacy_0',
+      text: rawNotes.trim(),
+      createdAt: 'Saved'
+    }];
+  }
+  return [];
+}
+
+/**
+ * Load bookmarks for guest / unauthenticated visitor
+ */
+export function getGuestBookmarks() {
+  try {
+    const raw = localStorage.getItem(GUEST_STORAGE_KEY) || sessionStorage.getItem('freshfind_session_bookmarks_v1');
+    if (!raw) return { ...defaultBookmarks };
+    const parsed = JSON.parse(raw);
+    return {
+      marketIds: Array.isArray(parsed.marketIds) ? parsed.marketIds : [],
+      produceIds: Array.isArray(parsed.produceIds) ? parsed.produceIds : [],
+      notes: typeof parsed.notes === 'object' && parsed.notes !== null ? parsed.notes : {}
+    };
+  } catch (err) {
+    return { ...defaultBookmarks };
+  }
+}
+
+/**
+ * Save bookmarks for guest / unauthenticated visitor
+ */
+export function saveGuestBookmarks(bookmarks) {
+  try {
+    localStorage.setItem(GUEST_STORAGE_KEY, JSON.stringify(bookmarks));
+  } catch (err) {
+    console.warn('Could not save guest bookmarks:', err);
+  }
+}
+
+/**
+ * Add a new personal note to an item's multiple notes list
+ */
+export function addItemNote(bookmarks, type, id, text) {
+  if (!text || !text.trim()) return bookmarks;
+  const key = `${type}_${id}`;
+  const existingNotes = normalizeNotes(bookmarks.notes?.[key]);
+  const newNote = {
+    id: `note_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
+    text: text.trim(),
+    createdAt: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+  };
+  return {
+    ...bookmarks,
+    notes: {
+      ...bookmarks.notes,
+      [key]: [...existingNotes, newNote]
+    }
+  };
+}
+
+/**
+ * Edit an existing personal note
+ */
+export function editItemNote(bookmarks, type, id, noteId, newText) {
+  const key = `${type}_${id}`;
+  const existingNotes = normalizeNotes(bookmarks.notes?.[key]);
+  const updatedNotes = existingNotes.map((n) =>
+    n.id === noteId ? { ...n, text: newText.trim(), updatedAt: 'Edited' } : n
+  );
+  return {
+    ...bookmarks,
+    notes: {
+      ...bookmarks.notes,
+      [key]: updatedNotes
+    }
+  };
+}
+
+/**
+ * Delete a specific personal note from an item
+ */
+export function deleteItemNote(bookmarks, type, id, noteId) {
+  const key = `${type}_${id}`;
+  const existingNotes = normalizeNotes(bookmarks.notes?.[key]);
+  const updatedNotes = existingNotes.filter((n) => n.id !== noteId);
+  return {
+    ...bookmarks,
+    notes: {
+      ...bookmarks.notes,
+      [key]: updatedNotes
+    }
+  };
+}
+
+/**
+ * Save or update personal note for an item (backwards compatible single note)
  */
 export function setItemNote(type, id, noteText) {
   const current = getSessionBookmarks();
@@ -123,7 +237,11 @@ export function setItemNote(type, id, noteText) {
   if (!noteText || noteText.trim() === '') {
     delete updatedNotes[key];
   } else {
-    updatedNotes[key] = noteText.trim();
+    updatedNotes[key] = [{
+      id: `note_${Date.now()}`,
+      text: noteText.trim(),
+      createdAt: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    }];
   }
 
   const updated = {
@@ -159,14 +277,19 @@ export function exportBookmarksToText(bookmarks, allMarkets, allProduce) {
     bookmarks.marketIds.forEach((id, idx) => {
       const m = allMarkets.find((item) => item.id === id);
       if (!m) return;
-      const note = bookmarks.notes[`market_${id}`];
+      const notes = normalizeNotes(bookmarks.notes[`market_${id}`]);
 
       content += `${idx + 1}. ${m.name}\n`;
       content += `   Area: ${m.area}\n`;
       content += `   Address: ${m.address}\n`;
       content += `   Contact: ${m.contact?.phone || 'N/A'} | ${m.contact?.email || 'N/A'}\n`;
-      if (note) {
-        content += `   [Personal Note]: "${note}"\n`;
+      if (notes.length === 1) {
+        content += `   [Personal Note]: "${notes[0].text}" (${notes[0].createdAt || 'Saved'})\n`;
+      } else if (notes.length > 1) {
+        content += `   [Personal Notes] (${notes.length}):\n`;
+        notes.forEach((n, nIdx) => {
+          content += `     • Note ${nIdx + 1}: "${n.text}" (${n.createdAt || 'Saved'})\n`;
+        });
       }
       content += `\n`;
     });
@@ -180,13 +303,18 @@ export function exportBookmarksToText(bookmarks, allMarkets, allProduce) {
     bookmarks.produceIds.forEach((id, idx) => {
       const p = allProduce.find((item) => item.id === id);
       if (!p) return;
-      const note = bookmarks.notes[`produce_${id}`];
+      const notes = normalizeNotes(bookmarks.notes[`produce_${id}`]);
 
       content += `${idx + 1}. ${p.name} (${p.category})\n`;
       content += `   Peak Season: ${p.season} (${p.peakMonths?.join(', ') || ''})\n`;
       content += `   Storage Tip: ${p.storageTip || 'N/A'}\n`;
-      if (note) {
-        content += `   [Personal Note]: "${note}"\n`;
+      if (notes.length === 1) {
+        content += `   [Personal Note]: "${notes[0].text}" (${notes[0].createdAt || 'Saved'})\n`;
+      } else if (notes.length > 1) {
+        content += `   [Personal Notes] (${notes.length}):\n`;
+        notes.forEach((n, nIdx) => {
+          content += `     • Note ${nIdx + 1}: "${n.text}" (${n.createdAt || 'Saved'})\n`;
+        });
       }
       content += `\n`;
     });

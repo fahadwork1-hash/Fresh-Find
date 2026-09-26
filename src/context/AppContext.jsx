@@ -2,6 +2,12 @@ import React, { createContext, useContext, useState, useEffect, useCallback } fr
 import {
   getUserBookmarks,
   saveUserBookmarks,
+  getGuestBookmarks,
+  saveGuestBookmarks,
+  addItemNote,
+  editItemNote,
+  deleteItemNote,
+  normalizeNotes,
   exportBookmarksToText
 } from '../utils/bookmarkUtils';
 import { requestUserLocation } from '../utils/geoUtils';
@@ -178,7 +184,7 @@ export function AppProvider({ children }) {
     }
   });
 
-  // 6. User-Specific Bookmarks (tied directly to currentUser account)
+  // 6. Bookmarks (supports both guest and authenticated user)
   const [bookmarks, setBookmarks] = useState(() => {
     try {
       const saved = localStorage.getItem('freshfind_user');
@@ -191,7 +197,7 @@ export function AppProvider({ children }) {
     } catch (e) {
       // fallback
     }
-    return { marketIds: [], produceIds: [], notes: {} };
+    return getGuestBookmarks();
   });
 
   // Keep bookmarks synced when currentUser logs in, logs out, or switches accounts
@@ -199,79 +205,87 @@ export function AppProvider({ children }) {
     if (currentUser?.email) {
       setBookmarks(getUserBookmarks(currentUser.email));
     } else {
-      setBookmarks({ marketIds: [], produceIds: [], notes: {} });
+      setBookmarks(getGuestBookmarks());
+    }
+  }, [currentUser]);
+
+  // Helper to persist bookmarks
+  const persistBookmarks = useCallback((updatedBookmarks) => {
+    if (currentUser?.email) {
+      saveUserBookmarks(currentUser.email, updatedBookmarks);
+    } else {
+      saveGuestBookmarks(updatedBookmarks);
     }
   }, [currentUser]);
 
   const handleToggleMarket = useCallback((marketId) => {
-    if (!currentUser) {
-      addToast('Please sign in to save markets to your favorites.', 'warning');
-      openAuthModal('login');
-      return;
-    }
-
     setBookmarks((prev) => {
       const exists = prev.marketIds.includes(marketId);
       const updatedIds = exists
         ? prev.marketIds.filter((id) => id !== marketId)
         : [...prev.marketIds, marketId];
       const updated = { ...prev, marketIds: updatedIds };
-      saveUserBookmarks(currentUser.email, updated);
+      persistBookmarks(updated);
 
       const market = marketsData.find((m) => m.id === marketId);
       addToast(
-        !exists ? `Added "${market?.name || 'Market'}" to your favorites!` : `Removed from favorites`,
+        !exists ? `Added "${market?.name || 'Market'}" to favorites!` : `Removed from favorites`,
         !exists ? 'success' : 'info'
       );
       return updated;
     });
-  }, [currentUser, openAuthModal]);
+  }, [persistBookmarks, addToast]);
 
   const handleToggleProduce = useCallback((produceId) => {
-    if (!currentUser) {
-      addToast('Please sign in to save produce to your favorites.', 'warning');
-      openAuthModal('login');
-      return;
-    }
-
     setBookmarks((prev) => {
       const exists = prev.produceIds.includes(produceId);
       const updatedIds = exists
         ? prev.produceIds.filter((id) => id !== produceId)
         : [...prev.produceIds, produceId];
       const updated = { ...prev, produceIds: updatedIds };
-      saveUserBookmarks(currentUser.email, updated);
+      persistBookmarks(updated);
 
       const item = produceData.find((p) => p.id === produceId);
       addToast(
-        !exists ? `Added "${item?.name || 'Produce'}" to your favorites!` : `Removed from favorites`,
+        !exists ? `Added "${item?.name || 'Produce'}" to favorites!` : `Removed from favorites`,
         !exists ? 'success' : 'info'
       );
       return updated;
     });
-  }, [currentUser, openAuthModal]);
+  }, [persistBookmarks, addToast]);
 
-  const handleUpdateNote = useCallback((type, id, text) => {
-    if (!currentUser) {
-      addToast('Please sign in to add personal notes.', 'warning');
-      openAuthModal('login');
-      return;
-    }
-
+  const handleAddNote = useCallback((type, id, text) => {
+    if (!text || !text.trim()) return;
     setBookmarks((prev) => {
-      const key = `${type}_${id}`;
-      const updatedNotes = { ...prev.notes };
-      if (!text || text.trim() === '') {
-        delete updatedNotes[key];
-      } else {
-        updatedNotes[key] = text.trim();
-      }
-      const updated = { ...prev, notes: updatedNotes };
-      saveUserBookmarks(currentUser.email, updated);
-      addToast('Personal note updated', 'success');
+      const updated = addItemNote(prev, type, id, text);
+      persistBookmarks(updated);
+      addToast('Personal note added!', 'success');
       return updated;
     });
-  }, [currentUser, openAuthModal]);
+  }, [persistBookmarks, addToast]);
+
+  const handleEditNote = useCallback((type, id, noteId, newText) => {
+    if (!newText || !newText.trim()) return;
+    setBookmarks((prev) => {
+      const updated = editItemNote(prev, type, id, noteId, newText);
+      persistBookmarks(updated);
+      addToast('Note updated!', 'success');
+      return updated;
+    });
+  }, [persistBookmarks, addToast]);
+
+  const handleDeleteNote = useCallback((type, id, noteId) => {
+    setBookmarks((prev) => {
+      const updated = deleteItemNote(prev, type, id, noteId);
+      persistBookmarks(updated);
+      addToast('Note deleted', 'info');
+      return updated;
+    });
+  }, [persistBookmarks, addToast]);
+
+  const handleUpdateNote = useCallback((type, id, text) => {
+    handleAddNote(type, id, text);
+  }, [handleAddNote]);
 
   const handleExportBookmarks = useCallback(() => {
     exportBookmarksToText(bookmarks, marketsData, produceData);
@@ -482,6 +496,9 @@ export function AppProvider({ children }) {
         bookmarks,
         toggleMarket: handleToggleMarket,
         toggleProduce: handleToggleProduce,
+        addNote: handleAddNote,
+        editNote: handleEditNote,
+        deleteNote: handleDeleteNote,
         updateNote: handleUpdateNote,
         exportBookmarks: handleExportBookmarks,
         isBookmarkedMarket,

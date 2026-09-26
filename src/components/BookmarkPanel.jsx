@@ -12,33 +12,202 @@ import {
   Store,
   Apple,
   MapPin,
-  Clock,
   ShoppingCart,
   Plus,
-  Minus
+  Minus,
+  FileText
 } from 'lucide-react';
 import marketsData from '../data/markets.json';
 import produceData from '../data/produce.json';
-import { shareRecommendation } from '../utils/bookmarkUtils';
+import { shareRecommendation, normalizeNotes } from '../utils/bookmarkUtils';
+
+/**
+ * Sub-component for managing multiple personal notes on a single bookmarked item
+ */
+function ItemNotesSection({ type, id, notes, onAddNote, onEditNote, onDeleteNote }) {
+  const [isAdding, setIsAdding] = useState(false);
+  const [newText, setNewText] = useState('');
+  const [editingNoteId, setEditingNoteId] = useState(null);
+  const [editText, setEditText] = useState('');
+
+  const notesList = normalizeNotes(notes);
+
+  const handleStartEdit = (note) => {
+    setEditingNoteId(note.id);
+    setEditText(note.text);
+    setIsAdding(false);
+  };
+
+  const handleSaveEdit = (noteId) => {
+    if (editText.trim()) {
+      onEditNote(type, id, noteId, editText.trim());
+    }
+    setEditingNoteId(null);
+    setEditText('');
+  };
+
+  const handleCreateNote = () => {
+    if (newText.trim()) {
+      onAddNote(type, id, newText.trim());
+      setNewText('');
+      setIsAdding(false);
+    }
+  };
+
+  return (
+    <div className="bg-stone-50/90 rounded-xl p-3 text-xs border border-stone-200/80 space-y-2.5">
+      <div className="flex items-center justify-between">
+        <span className="font-bold text-[11px] text-stone-700 flex items-center gap-1.5 uppercase tracking-wider">
+          <FileText className="w-3.5 h-3.5 text-emerald-700" />
+          Personal Notes ({notesList.length})
+        </span>
+        {!isAdding && (
+          <button
+            type="button"
+            onClick={() => {
+              setIsAdding(true);
+              setEditingNoteId(null);
+            }}
+            className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 hover:text-emerald-900 bg-white hover:bg-emerald-50 px-2 py-0.5 rounded-md border border-stone-200 transition-colors cursor-pointer"
+          >
+            <Plus className="w-3 h-3" />
+            <span>Add Note</span>
+          </button>
+        )}
+      </div>
+
+      {/* Existing Notes List */}
+      {notesList.length > 0 ? (
+        <div className="space-y-1.5">
+          {notesList.map((n, idx) => {
+            const isEditingThis = editingNoteId === n.id;
+            if (isEditingThis) {
+              return (
+                <div key={n.id || idx} className="p-2 bg-white rounded-lg border border-emerald-400 space-y-2 shadow-2xs">
+                  <textarea
+                    value={editText}
+                    onChange={(e) => setEditText(e.target.value)}
+                    className="w-full p-2 bg-stone-50 border border-stone-200 rounded-md text-xs text-stone-800 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                    rows={2}
+                    autoFocus
+                  />
+                  <div className="flex items-center justify-end gap-1.5">
+                    <button
+                      type="button"
+                      onClick={() => setEditingNoteId(null)}
+                      className="px-2.5 py-0.5 text-stone-500 hover:bg-stone-100 rounded text-[11px] font-medium cursor-pointer"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleSaveEdit(n.id)}
+                      className="px-2.5 py-0.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded text-[11px] font-bold flex items-center gap-1 cursor-pointer"
+                    >
+                      <Check className="w-3 h-3" />
+                      Save
+                    </button>
+                  </div>
+                </div>
+              );
+            }
+
+            return (
+              <div
+                key={n.id || idx}
+                className="flex items-start justify-between gap-2 p-2 bg-white rounded-lg border border-stone-200/70 hover:border-stone-300 transition-all text-xs"
+              >
+                <div className="min-w-0 flex-1">
+                  <p className="text-stone-800 text-[11.5px] leading-relaxed break-words font-medium">
+                    {n.text}
+                  </p>
+                  <span className="text-[10px] text-stone-400 font-medium">
+                    {n.createdAt || 'Saved note'}
+                  </span>
+                </div>
+                <div className="flex items-center gap-1 shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => handleStartEdit(n)}
+                    title="Edit note"
+                    className="p-1 text-stone-400 hover:text-emerald-700 rounded hover:bg-stone-100 transition-colors cursor-pointer"
+                  >
+                    <Edit3 className="w-3 h-3" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => onDeleteNote(type, id, n.id)}
+                    title="Delete note"
+                    className="p-1 text-stone-400 hover:text-rose-600 rounded hover:bg-rose-50 transition-colors cursor-pointer"
+                  >
+                    <Trash2 className="w-3 h-3" />
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      ) : !isAdding ? (
+        <p className="text-stone-400 italic text-[11px] py-0.5">
+          No personal notes yet. Click "+ Add Note" to keep grocery reminders.
+        </p>
+      ) : null}
+
+      {/* New Note Form */}
+      {isAdding && (
+        <div className="p-2 bg-white rounded-lg border border-emerald-400 space-y-2 shadow-2xs">
+          <textarea
+            value={newText}
+            onChange={(e) => setNewText(e.target.value)}
+            placeholder="Type your personal shopping reminder (e.g. check stall 4 for pure honey)..."
+            className="w-full p-2 bg-stone-50 border border-stone-200 rounded-md text-xs text-stone-800 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+            rows={2}
+            autoFocus
+          />
+          <div className="flex items-center justify-end gap-1.5">
+            <button
+              type="button"
+              onClick={() => {
+                setIsAdding(false);
+                setNewText('');
+              }}
+              className="px-2.5 py-0.5 text-stone-500 hover:bg-stone-100 rounded text-[11px] font-medium cursor-pointer"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              onClick={handleCreateNote}
+              disabled={!newText.trim()}
+              className="px-2.5 py-0.5 bg-emerald-700 hover:bg-emerald-800 disabled:opacity-50 text-white rounded text-[11px] font-bold flex items-center gap-1 cursor-pointer"
+            >
+              <Check className="w-3 h-3" />
+              Save Note
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function BookmarkPanel({ isOpen, onClose }) {
   const {
     bookmarks,
     toggleMarket,
     toggleProduce,
-    updateNote,
+    addNote,
+    editNote,
+    deleteNote,
     exportBookmarks,
     addToast,
     currentUser,
-    openAuthModal,
     cart,
     addToCart,
     updateCartQuantity
   } = useApp();
 
   const [activeTab, setActiveTab] = useState('markets'); // 'markets' | 'produce'
-  const [editingNoteKey, setEditingNoteKey] = useState(null);
-  const [noteDraft, setNoteDraft] = useState('');
 
   if (!isOpen) return null;
 
@@ -51,17 +220,6 @@ export default function BookmarkPanel({ isOpen, onClose }) {
   );
 
   const totalCount = bookmarks.marketIds.length + bookmarks.produceIds.length;
-
-  const handleStartEditNote = (key, currentNote) => {
-    setEditingNoteKey(key);
-    setNoteDraft(currentNote || '');
-  };
-
-  const handleSaveNote = (type, id) => {
-    updateNote(type, id, noteDraft);
-    setEditingNoteKey(null);
-    setNoteDraft('');
-  };
 
   const handleShareList = () => {
     shareRecommendation(
@@ -94,7 +252,7 @@ export default function BookmarkPanel({ isOpen, onClose }) {
                 My Saved Favorites
               </h2>
               <p className="text-[11px] text-emerald-200/80">
-                {currentUser ? `${currentUser.name}'s Account • ${totalCount} saved` : `Sign in to sync • ${totalCount} saved`}
+                {currentUser ? `${currentUser.name}'s Account • ${totalCount} saved` : `Saved Favorites • ${totalCount} saved`}
               </p>
             </div>
           </div>
@@ -115,7 +273,7 @@ export default function BookmarkPanel({ isOpen, onClose }) {
             type="button"
             onClick={exportBookmarks}
             disabled={totalCount === 0}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-stone-200 hover:border-emerald-500 text-emerald-800 text-xs font-bold shadow-xs hover:bg-emerald-50 transition-colors disabled:opacity-40"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-stone-200 hover:border-emerald-500 text-emerald-800 text-xs font-bold shadow-xs hover:bg-emerald-50 transition-colors disabled:opacity-40 cursor-pointer"
           >
             <FileDown className="w-3.5 h-3.5 text-emerald-600" />
             <span>Export Bookmarks (.txt)</span>
@@ -124,7 +282,7 @@ export default function BookmarkPanel({ isOpen, onClose }) {
           <button
             type="button"
             onClick={handleShareList}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-stone-200 hover:border-emerald-500 text-stone-700 text-xs font-bold shadow-xs hover:bg-stone-50 transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-stone-200 hover:border-emerald-500 text-stone-700 text-xs font-bold shadow-xs hover:bg-stone-50 transition-colors cursor-pointer"
           >
             <Share2 className="w-3.5 h-3.5 text-emerald-600" />
             <span>Share</span>
@@ -136,7 +294,7 @@ export default function BookmarkPanel({ isOpen, onClose }) {
           <button
             type="button"
             onClick={() => setActiveTab('markets')}
-            className={`flex-1 py-3 text-xs sm:text-sm font-bold flex items-center justify-center gap-2 border-b-2 transition-colors ${
+            className={`flex-1 py-3 text-xs sm:text-sm font-bold flex items-center justify-center gap-2 border-b-2 transition-colors cursor-pointer ${
               activeTab === 'markets'
                 ? 'border-emerald-600 text-emerald-800 bg-emerald-50/40'
                 : 'border-transparent text-stone-500 hover:text-stone-800'
@@ -149,7 +307,7 @@ export default function BookmarkPanel({ isOpen, onClose }) {
           <button
             type="button"
             onClick={() => setActiveTab('produce')}
-            className={`flex-1 py-3 text-xs sm:text-sm font-bold flex items-center justify-center gap-2 border-b-2 transition-colors ${
+            className={`flex-1 py-3 text-xs sm:text-sm font-bold flex items-center justify-center gap-2 border-b-2 transition-colors cursor-pointer ${
               activeTab === 'produce'
                 ? 'border-emerald-600 text-emerald-800 bg-emerald-50/40'
                 : 'border-transparent text-stone-500 hover:text-stone-800'
@@ -162,29 +320,7 @@ export default function BookmarkPanel({ isOpen, onClose }) {
 
         {/* Content Area */}
         <div className="flex-1 overflow-y-auto p-4 space-y-4">
-          {!currentUser ? (
-            <div className="text-center py-16 px-4">
-              <div className="w-14 h-14 rounded-full bg-emerald-50 border border-emerald-200/60 flex items-center justify-center mx-auto mb-3.5 text-emerald-600">
-                <Heart className="w-7 h-7 fill-emerald-100 text-emerald-600" />
-              </div>
-              <h3 className="font-extrabold text-stone-900 text-base mb-1.5">
-                Sign in to view your saved items
-              </h3>
-              <p className="text-xs text-stone-500 max-w-xs mx-auto mb-5 leading-relaxed">
-                Log in or create an account to save your favorite farmers markets, fresh produce, and notes across sessions.
-              </p>
-              <button
-                type="button"
-                onClick={() => {
-                  onClose();
-                  openAuthModal('login');
-                }}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs shadow-soft transition-colors cursor-pointer"
-              >
-                <span>Sign In / Create Account</span>
-              </button>
-            </div>
-          ) : activeTab === 'markets' ? (
+          {activeTab === 'markets' ? (
             bookmarkedMarkets.length === 0 ? (
               <div className="text-center py-12 px-4">
                 <div className="w-12 h-12 rounded-full bg-stone-100 flex items-center justify-center mx-auto mb-3 text-stone-400">
@@ -205,94 +341,52 @@ export default function BookmarkPanel({ isOpen, onClose }) {
                 </Link>
               </div>
             ) : (
-              bookmarkedMarkets.map((market) => {
-                const noteKey = `market_${market.id}`;
-                const note = bookmarks.notes[noteKey];
-                const isEditing = editingNoteKey === noteKey;
-
-                return (
-                  <div
-                    key={market.id}
-                    className="p-4 rounded-2xl border border-stone-200 bg-white shadow-soft hover:border-emerald-300 transition-all flex flex-col gap-3"
-                  >
-                    <div className="flex items-start gap-3">
-                      <img
-                        src={market.image}
-                        alt={market.name}
-                        className="w-16 h-16 rounded-xl object-cover shrink-0"
-                      />
-                      <div className="min-w-0 flex-1">
-                        <Link
-                          to={`/market/${market.id}`}
-                          onClick={onClose}
-                          className="font-bold text-sm text-stone-900 hover:text-emerald-700 transition-colors line-clamp-1"
-                        >
-                          {market.name}
-                        </Link>
-                        <p className="text-xs text-stone-500 flex items-center gap-1 mt-0.5 truncate">
-                          <MapPin className="w-3 h-3 text-emerald-600 shrink-0" />
-                          <span>{market.area}</span>
-                        </p>
-                      </div>
-
-                      <button
-                        type="button"
-                        onClick={() => toggleMarket(market.id)}
-                        title="Remove bookmark"
-                        className="p-1.5 text-stone-400 hover:text-rose-500 rounded-lg hover:bg-rose-50 transition-colors shrink-0"
+              bookmarkedMarkets.map((market) => (
+                <div
+                  key={market.id}
+                  className="p-4 rounded-2xl border border-stone-200 bg-white shadow-soft hover:border-emerald-300 transition-all flex flex-col gap-3"
+                >
+                  <div className="flex items-start gap-3">
+                    <img
+                      src={market.image}
+                      alt={market.name}
+                      className="w-16 h-16 rounded-xl object-cover shrink-0"
+                    />
+                    <div className="min-w-0 flex-1">
+                      <Link
+                        to={`/market/${market.id}`}
+                        onClick={onClose}
+                        className="font-bold text-sm text-stone-900 hover:text-emerald-700 transition-colors line-clamp-1"
                       >
-                        <Trash2 className="w-4 h-4" />
-                      </button>
+                        {market.name}
+                      </Link>
+                      <p className="text-xs text-stone-500 flex items-center gap-1 mt-0.5 truncate">
+                        <MapPin className="w-3 h-3 text-emerald-600 shrink-0" />
+                        <span>{market.area}</span>
+                      </p>
                     </div>
 
-                    {/* Personal Note Box */}
-                    <div className="bg-stone-50 rounded-xl p-2.5 text-xs border border-stone-100">
-                      {isEditing ? (
-                        <div className="space-y-2">
-                          <textarea
-                            value={noteDraft}
-                            onChange={(e) => setNoteDraft(e.target.value)}
-                            placeholder="Add your personal session note (e.g. remember to check the organic honey stall)..."
-                            className="w-full p-2 bg-white border border-stone-200 rounded-lg text-xs text-stone-800 focus:outline-none focus:ring-1 focus:ring-emerald-500"
-                            rows={2}
-                          />
-                          <div className="flex items-center justify-end gap-1.5">
-                            <button
-                              type="button"
-                              onClick={() => setEditingNoteKey(null)}
-                              className="px-2.5 py-1 text-stone-500 hover:bg-stone-200 rounded-md font-medium text-[11px]"
-                            >
-                              Cancel
-                            </button>
-                            <button
-                              type="button"
-                              onClick={() => handleSaveNote('market', market.id)}
-                              className="px-2.5 py-1 bg-emerald-600 text-white rounded-md font-bold text-[11px] flex items-center gap-1"
-                            >
-                              <Check className="w-3 h-3" />
-                              <span>Save Note</span>
-                            </button>
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="flex items-start justify-between gap-2">
-                          <p className="text-stone-600 italic">
-                            {note ? `"${note}"` : 'No personal note attached.'}
-                          </p>
-                          <button
-                            type="button"
-                            onClick={() => handleStartEditNote(noteKey, note)}
-                            className="text-emerald-700 hover:text-emerald-900 font-bold inline-flex items-center gap-1 shrink-0 text-[11px]"
-                          >
-                            <Edit3 className="w-3 h-3" />
-                            <span>{note ? 'Edit' : 'Add Note'}</span>
-                          </button>
-                        </div>
-                      )}
-                    </div>
+                    <button
+                      type="button"
+                      onClick={() => toggleMarket(market.id)}
+                      title="Remove bookmark"
+                      className="p-1.5 text-stone-400 hover:text-rose-500 rounded-lg hover:bg-rose-50 transition-colors shrink-0 cursor-pointer"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
                   </div>
-                );
-              })
+
+                  {/* Multiple Personal Notes Section */}
+                  <ItemNotesSection
+                    type="market"
+                    id={market.id}
+                    notes={bookmarks.notes?.[`market_${market.id}`]}
+                    onAddNote={addNote}
+                    onEditNote={editNote}
+                    onDeleteNote={deleteNote}
+                  />
+                </div>
+              ))
             )
           ) : bookmarkedProduce.length === 0 ? (
             <div className="text-center py-12 px-4">
@@ -315,9 +409,6 @@ export default function BookmarkPanel({ isOpen, onClose }) {
             </div>
           ) : (
             bookmarkedProduce.map((produce) => {
-              const noteKey = `produce_${produce.id}`;
-              const note = bookmarks.notes[noteKey];
-              const isEditing = editingNoteKey === noteKey;
               const cartItem = cart?.find((item) => item.id === produce.id);
 
               return (
@@ -402,51 +493,15 @@ export default function BookmarkPanel({ isOpen, onClose }) {
                     </button>
                   )}
 
-                  {/* Personal Note Box */}
-                  <div className="bg-stone-50 rounded-xl p-2.5 text-xs border border-stone-100">
-                    {isEditing ? (
-                      <div className="space-y-2">
-                        <textarea
-                          value={noteDraft}
-                          onChange={(e) => setNoteDraft(e.target.value)}
-                          placeholder="Add your personal session note for this produce..."
-                          className="w-full p-2 bg-white border border-stone-200 rounded-lg text-xs text-stone-800 focus:outline-none focus:ring-1 focus:ring-emerald-500"
-                          rows={2}
-                        />
-                        <div className="flex items-center justify-end gap-1.5">
-                          <button
-                            type="button"
-                            onClick={() => setEditingNoteKey(null)}
-                            className="px-2.5 py-1 text-stone-500 hover:bg-stone-200 rounded-md font-medium text-[11px]"
-                          >
-                            Cancel
-                          </button>
-                          <button
-                            type="button"
-                            onClick={() => handleSaveNote('produce', produce.id)}
-                            className="px-2.5 py-1 bg-emerald-600 text-white rounded-md font-bold text-[11px] flex items-center gap-1"
-                          >
-                            <Check className="w-3 h-3" />
-                            <span>Save Note</span>
-                          </button>
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="flex items-start justify-between gap-2">
-                        <p className="text-stone-600 italic">
-                          {note ? `"${note}"` : 'No personal note attached.'}
-                        </p>
-                        <button
-                          type="button"
-                          onClick={() => handleStartEditNote(noteKey, note)}
-                          className="text-emerald-700 hover:text-emerald-900 font-bold inline-flex items-center gap-1 shrink-0 text-[11px]"
-                        >
-                          <Edit3 className="w-3 h-3" />
-                          <span>{note ? 'Edit' : 'Add Note'}</span>
-                        </button>
-                      </div>
-                    )}
-                  </div>
+                  {/* Multiple Personal Notes Section */}
+                  <ItemNotesSection
+                    type="produce"
+                    id={produce.id}
+                    notes={bookmarks.notes?.[`produce_${produce.id}`]}
+                    onAddNote={addNote}
+                    onEditNote={editNote}
+                    onDeleteNote={deleteNote}
+                  />
                 </div>
               );
             })
@@ -456,7 +511,7 @@ export default function BookmarkPanel({ isOpen, onClose }) {
         {/* Panel Footer */}
         <div className="p-4 bg-stone-50 border-t border-stone-200 text-center shrink-0">
           <p className="text-[11px] text-stone-500">
-            Per SRS guidelines, personal notes are strictly session-only and never sent to any server.
+            Personal notes are saved on your device and can be exported as a shopping checklist at any time.
           </p>
         </div>
       </div>
