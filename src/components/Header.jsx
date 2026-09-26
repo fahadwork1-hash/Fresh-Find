@@ -38,7 +38,8 @@ export default function Header() {
   } = useApp();
   const navigate = useNavigate();
 
-  const totalBookmarks = bookmarks.marketIds.length + bookmarks.produceIds.length;
+  const totalBookmarks =
+    (bookmarks?.marketIds?.length || 0) + (bookmarks?.produceIds?.length || 0);
 
   // Filter suggested markets based on input
   const suggestedMarkets = useMemo(() => {

@@ -17,6 +17,21 @@ import produceData from '../data/produce.json';
 const AppContext = createContext();
 
 export function AppProvider({ children }) {
+  // Toast System (Initialized first so all hooks can access it)
+  const [toasts, setToasts] = useState([]);
+
+  const addToast = useCallback((message, type = 'info') => {
+    const id = Date.now() + Math.random().toString(36).slice(2, 6);
+    setToasts((prev) => [...prev, { id, message, type }]);
+    setTimeout(() => {
+      setToasts((prev) => prev.filter((t) => t.id !== id));
+    }, 4000);
+  }, []);
+
+  const removeToast = useCallback((id) => {
+    setToasts((prev) => prev.filter((t) => t.id !== id));
+  }, []);
+
   // 1. Real-time Clock State
   const [currentTime, setCurrentTime] = useState(new Date());
   const [isSimulatedTime, setIsSimulatedTime] = useState(false);
@@ -293,13 +308,13 @@ export function AppProvider({ children }) {
   }, [bookmarks]);
 
   const isBookmarkedMarket = useCallback(
-    (marketId) => bookmarks.marketIds.includes(marketId),
-    [bookmarks.marketIds]
+    (marketId) => Boolean(bookmarks?.marketIds?.includes(marketId)),
+    [bookmarks]
   );
 
   const isBookmarkedProduce = useCallback(
-    (produceId) => bookmarks.produceIds.includes(produceId),
-    [bookmarks.produceIds]
+    (produceId) => Boolean(bookmarks?.produceIds?.includes(produceId)),
+    [bookmarks]
   );
 
   const registerUser = ({ name, email, password }) => {
@@ -465,21 +480,6 @@ export function AppProvider({ children }) {
 
   const cartItemCount = cart.reduce((acc, item) => acc + item.quantity, 0);
   const cartTotal = cart.reduce((acc, item) => acc + (item.price || 0) * item.quantity, 0);
-
-  // 8. Toast System
-  const [toasts, setToasts] = useState([]);
-
-  const addToast = (message, type = 'info') => {
-    const id = Date.now() + Math.random().toString(36).slice(2, 6);
-    setToasts((prev) => [...prev, { id, message, type }]);
-    setTimeout(() => {
-      setToasts((prev) => prev.filter((t) => t.id !== id));
-    }, 4000);
-  };
-
-  const removeToast = (id) => {
-    setToasts((prev) => prev.filter((t) => t.id !== id));
-  };
 
   return (
     <AppContext.Provider

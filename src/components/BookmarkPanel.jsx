@@ -212,14 +212,15 @@ export default function BookmarkPanel({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   const bookmarkedMarkets = marketsData.filter((m) =>
-    bookmarks.marketIds.includes(m.id)
+    Boolean(bookmarks?.marketIds?.includes(m.id))
   );
 
   const bookmarkedProduce = produceData.filter((p) =>
-    bookmarks.produceIds.includes(p.id)
+    Boolean(bookmarks?.produceIds?.includes(p.id))
   );
 
-  const totalCount = bookmarks.marketIds.length + bookmarks.produceIds.length;
+  const totalCount =
+    (bookmarks?.marketIds?.length || 0) + (bookmarks?.produceIds?.length || 0);
 
   const handleShareList = () => {
     shareRecommendation(

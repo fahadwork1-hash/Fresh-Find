@@ -16,12 +16,13 @@ const defaultBookmarks = {
  * Load bookmarks for a specific user from localStorage
  */
 export function getUserBookmarks(userEmail) {
-  if (!userEmail) return { ...defaultBookmarks };
+  if (!userEmail) return { marketIds: [], produceIds: [], notes: {} };
   try {
     const key = `freshfind_bookmarks_${userEmail.trim().toLowerCase()}`;
     const raw = localStorage.getItem(key);
-    if (!raw) return { ...defaultBookmarks };
+    if (!raw) return { marketIds: [], produceIds: [], notes: {} };
     const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== 'object') return { marketIds: [], produceIds: [], notes: {} };
     return {
       marketIds: Array.isArray(parsed.marketIds) ? parsed.marketIds : [],
       produceIds: Array.isArray(parsed.produceIds) ? parsed.produceIds : [],
@@ -29,7 +30,7 @@ export function getUserBookmarks(userEmail) {
     };
   } catch (err) {
     console.warn('Could not read user bookmarks:', err);
-    return { ...defaultBookmarks };
+    return { marketIds: [], produceIds: [], notes: {} };
   }
 }
 
@@ -148,15 +149,16 @@ export function normalizeNotes(rawNotes) {
 export function getGuestBookmarks() {
   try {
     const raw = localStorage.getItem(GUEST_STORAGE_KEY) || sessionStorage.getItem('freshfind_session_bookmarks_v1');
-    if (!raw) return { ...defaultBookmarks };
+    if (!raw) return { marketIds: [], produceIds: [], notes: {} };
     const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== 'object') return { marketIds: [], produceIds: [], notes: {} };
     return {
       marketIds: Array.isArray(parsed.marketIds) ? parsed.marketIds : [],
       produceIds: Array.isArray(parsed.produceIds) ? parsed.produceIds : [],
       notes: typeof parsed.notes === 'object' && parsed.notes !== null ? parsed.notes : {}
     };
   } catch (err) {
-    return { ...defaultBookmarks };
+    return { marketIds: [], produceIds: [], notes: {} };
   }
 }
 

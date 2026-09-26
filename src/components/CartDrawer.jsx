@@ -47,14 +47,6 @@ export default function CartDrawer() {
     e.preventDefault();
     setCheckoutError('');
 
-    // If user is not logged in: prompt login and keep cart intact!
-    if (!currentUser) {
-      addToast('Please sign in or create an account to confirm your order.', 'warning');
-      closeCartDrawer();
-      openAuthModal('login');
-      return;
-    }
-
     // Validation
     if (fulfillmentType === 'delivery') {
       if (!deliveryAddress.trim() || deliveryAddress.trim().length < 8) {
@@ -84,8 +76,8 @@ export default function CartDrawer() {
         hour: '2-digit',
         minute: '2-digit'
       }),
-      customerName: currentUser.name,
-      customerEmail: currentUser.email,
+      customerName: currentUser?.name || 'Resident Customer',
+      customerEmail: currentUser?.email || 'guest@freshfind.local',
       items: [...cart],
       subtotal: cartTotal,
       deliveryFee: deliveryFee,
@@ -101,7 +93,7 @@ export default function CartDrawer() {
     clearCart();
     closeCartDrawer();
     setOrderReceipt(orderData);
-    addToast(`Order confirmed! Thank you, ${currentUser.name}!`, 'success');
+    addToast(`Order confirmed! Thank you${currentUser?.name ? `, ${currentUser.name}` : ''}!`, 'success');
   };
 
   return (
@@ -406,22 +398,13 @@ export default function CartDrawer() {
                 onClick={handleCheckout}
                 className="w-full py-3.5 px-4 rounded-2xl bg-emerald-700 hover:bg-emerald-800 text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-soft transition-all duration-150 cursor-pointer"
               >
-                {!currentUser ? (
-                  <>
-                    <span>Sign In to Complete Order</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </>
-                ) : (
-                  <>
-                    <span>Confirm & Place Order (Rs. {finalTotal})</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </>
-                )}
+                <span>Confirm & Place Order (Rs. {finalTotal})</span>
+                <ArrowRight className="w-4 h-4" />
               </button>
               <p className="text-[11px] text-stone-400 text-center mt-2">
-                {!currentUser
-                  ? 'Your items will be saved while you sign in or create an account.'
-                  : `Signed in as ${currentUser.name}. You will receive order details instantly.`}
+                {currentUser
+                  ? `Signed in as ${currentUser.name}. You will receive order details instantly.`
+                  : 'Instant simulated order confirmation. No account required.'}
               </p>
             </div>
           </div>
