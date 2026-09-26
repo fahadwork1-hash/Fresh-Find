@@ -1,0 +1,118 @@
+{
+  "quickSuggestions": [
+    "Which markets are open today?",
+    "Where can I buy fresh organic tomatoes?",
+    "Show me seasonal fruits for this month",
+    "Find markets in Clifton or DHA",
+    "How does bookmarking work?",
+    "Where is the Clifton Farmers Market located?"
+  ],
+  "faq": [
+    {
+      "id": "faq-1",
+      "question": "Which markets are open right now or today?",
+      "keywords": ["open now", "open today", "today", "now", "hours", "timing", "schedule", "operating"],
+      "answer": "You can check our live Open Now status on the Home page or filter by day in the Market Directory. Markets like Malir Valley, Gulshan Heritage, and Saddar Empress operate daily or weekdays, while Clifton and DHA Creek Park host big weekend fairs!",
+      "linkText": "Explore Market Directory",
+      "link": "/markets"
+    },
+    {
+      "id": "faq-2",
+      "question": "Where can I find fresh vegetables?",
+      "keywords": ["vegetable", "vegetables", "greens", "spinach", "okra", "lettuce", "radish", "salad"],
+      "answer": "Fresh greens, heirloom vine tomatoes, crisp okra, baby spinach, and hydroponic lettuce are stocked across all our partner markets. Clifton Organic Market and Malir Valley have dawn-harvested vegetable stalls.",
+      "linkText": "Browse Produce Guide: Vegetables",
+      "link": "/produce?category=Vegetables"
+    },
+    {
+      "id": "faq-3",
+      "question": "Where can I buy heirloom tomatoes?",
+      "keywords": ["tomato", "tomatoes", "heirloom", "cherry tomato", "vine"],
+      "answer": "Heirloom Vine Tomatoes are featured at Clifton Organic Market, PECHS Green Bazaar, Saddar Empress, and Malir Valley. They are pesticide-free and grown from ancestral heritage seeds.",
+      "linkText": "View Heirloom Tomatoes in Guide",
+      "link": "/produce"
+    },
+    {
+      "id": "faq-4",
+      "question": "Where can I find organic fruits like mangoes or citrus?",
+      "keywords": ["fruit", "fruits", "mango", "mangoes", "sindhri", "guava", "orange", "citrus", "strawberry", "berries"],
+      "answer": "Our directory features delicious orchard-fresh fruits including Sindhri mangoes (summer), sweet pink guavas (autumn), and juicy Kinnow citrus (winter). Check out PECHS Green Bazaar and DHA Creek Park Harvest Fair!",
+      "linkText": "Explore Fruit Selection",
+      "link": "/produce?category=Fruits"
+    },
+    {
+      "id": "faq-5",
+      "question": "Tell me about Clifton Organic Farmer's Market",
+      "keywords": ["clifton", "clifton market", "marine promenade", "bilawal"],
+      "answer": "Clifton Organic Farmer's Market takes place every Saturday (7:30 AM - 2:30 PM) and Sunday (8:00 AM - 3:00 PM) at Block 4, Marine Promenade. It features 45+ organic growers, live folk music, and free parking.",
+      "linkText": "View Clifton Market Details",
+      "link": "/market/market-1"
+    },
+    {
+      "id": "faq-6",
+      "question": "Are there any markets in DHA or near the sea?",
+      "keywords": ["dha", "creek", "phase 8", "phase 6", "sea", "coastal", "waterfront"],
+      "answer": "Yes! The DHA Creek Park Harvest Fair is located at Gate 2, Creek Waterfront Promenade in DHA Phase 8. It runs Wednesdays, Saturdays, and Sundays with coastal sea breezes and hydroponic produce.",
+      "linkText": "View DHA Creek Park Market",
+      "link": "/market/market-2"
+    },
+    {
+      "id": "faq-7",
+      "question": "Where can I find fresh herbs and live culinary plants?",
+      "keywords": ["herb", "herbs", "mint", "coriander", "basil", "plants", "botanic"],
+      "answer": "The Gulshan Heritage Botanic Market specializes in live potted culinary herbs, garden seed exchange, fresh mint, coriander, and sweet Genovese basil bundles.",
+      "linkText": "View Gulshan Heritage Botanic Market",
+      "link": "/market/market-4"
+    },
+    {
+      "id": "faq-8",
+      "question": "Where can I buy farm fresh dairy, cheese, and eggs?",
+      "keywords": ["dairy", "milk", "cheese", "eggs", "feta", "butter", "buffalo"],
+      "answer": "Pasture-raised eggs, artisanal goat feta, cultured buffalo butter, and raw milk can be found at PECHS Green Bazaar, Clifton Organic Market, and Bahria Eco-Village Produce Pavilion.",
+      "linkText": "Explore Dairy & Eggs",
+      "link": "/produce?category=Dairy%20%26%20Eggs"
+    },
+    {
+      "id": "faq-9",
+      "question": "What is in season right now?",
+      "keywords": ["season", "seasonal", "spring", "summer", "autumn", "fall", "winter", "month", "picks"],
+      "answer": "FreshFind highlights seasonal produce in our Seasonal Recommendations section! Eating in season ensures peak flavor, maximum nutritional density, and support for local harvesting cycles.",
+      "linkText": "View Seasonal Recommendations",
+      "link": "/seasonal"
+    },
+    {
+      "id": "faq-10",
+      "question": "How do I bookmark a market or produce item?",
+      "keywords": ["bookmark", "favorite", "save", "notes", "export", "bookmarks"],
+      "answer": "Click the heart icon or 'Bookmark' button on any market card, market detail page, or produce card. You can also attach session-only personal notes and export your list anytime from the top bar!",
+      "linkText": "Browse Markets to Bookmark",
+      "link": "/markets"
+    },
+    {
+      "id": "faq-11",
+      "question": "How can I contact FreshFind or market organizers?",
+      "keywords": ["contact", "email", "phone", "support", "help", "organizer", "reach"],
+      "answer": "You can reach the FreshFind team via our Contact Us page, where you'll find contact info, location maps, and details for community organizers.",
+      "linkText": "Go to Contact Us",
+      "link": "/contact"
+    },
+    {
+      "id": "faq-12",
+      "question": "What is the mission behind FreshFind?",
+      "keywords": ["about", "mission", "story", "team", "purpose", "who are you", "what is freshfind"],
+      "answer": "FreshFind connects city residents directly with sustainable local farmers and community markets under the eGreen Basket theme. Read our full story and mission on the About Us page.",
+      "linkText": "Read About FreshFind",
+      "link": "/about"
+    }
+  ],
+  "defaultResponse": {
+    "answer": "I'm the FreshFind Guide! I can help you find nearby farmers markets, check operating hours, discover seasonal vegetables and fruits, or guide you through bookmarks. Try asking one of these quick questions:",
+    "fallbackSuggestions": [
+      "Which markets are open today?",
+      "Find markets in Clifton or DHA",
+      "Where can I buy fresh organic tomatoes?",
+      "What produce is in season?",
+      "Explore Market Directory"
+    ]
+  }
+}

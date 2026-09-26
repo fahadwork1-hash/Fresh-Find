@@ -1,0 +1,850 @@
+[
+  {
+    "id": "prod-1",
+    "name": "Heirloom Vine Tomatoes",
+    "category": "Vegetables",
+    "season": "Spring",
+    "peakMonths": [
+      "February",
+      "March",
+      "April",
+      "May"
+    ],
+    "description": "Richly fragrant, sun-ripened heritage tomatoes grown with ancestral seeds. Deep red, juicy flesh packed with authentic garden sweetness and balanced acidity.",
+    "nutritionHighlights": [
+      "High in Lycopene",
+      "Vitamin C",
+      "Potassium",
+      "Dietary Fiber"
+    ],
+    "storageTip": "Store stem-down at room temperature away from direct sunlight. Never refrigerate before fully ripe to preserve aroma and sweetness.",
+    "image": "/images/produce/vegetables/tomato.jpg",
+    "marketIds": [
+      "market-1",
+      "market-3",
+      "market-5",
+      "market-7"
+    ],
+    "price": 180,
+    "unit": "kg"
+  },
+  {
+    "id": "prod-2",
+    "name": "Baby Spinach & Red Sorrel",
+    "category": "Vegetables",
+    "season": "Winter",
+    "peakMonths": [
+      "November",
+      "December",
+      "January",
+      "February"
+    ],
+    "description": "Tender, iron-rich emerald spinach leaves picked in early mist. Pairs mild nutty greens with zesty lemon-tinged red sorrel shoots.",
+    "nutritionHighlights": [
+      "Rich in Iron",
+      "Folate & Vitamin K",
+      "Lutein",
+      "Low Calorie"
+    ],
+    "storageTip": "Wrap loosely in dry unbleached paper towels inside an airtight container in the vegetable crisper drawer for up to 7 days.",
+    "image": "/images/produce/vegetables/Spanich.jpg",
+    "marketIds": [
+      "market-1",
+      "market-2",
+      "market-5",
+      "market-6",
+      "market-8"
+    ],
+    "price": 120,
+    "unit": "bunch"
+  },
+  {
+    "id": "prod-3",
+    "name": "Sindhri Golden Mangoes",
+    "category": "Fruits",
+    "season": "Summer",
+    "peakMonths": [
+      "May",
+      "June",
+      "July"
+    ],
+    "description": "The crowned jewel of local orchards. Exceptionally sweet, velvety, fiber-free golden flesh with a heady tropical perfume picked tree-ripe from Mirpur Khas.",
+    "nutritionHighlights": [
+      "Vitamin A & C Booster",
+      "Digestive Enzymes",
+      "Beta-Carotene"
+    ],
+    "storageTip": "Keep at room temperature until fragrant and slightly soft to gentle touch. Chill for one hour before slicing and serving.",
+    "image": "/images/produce/fruits/sindhrimango.jpg",
+    "marketIds": [
+      "market-1",
+      "market-3",
+      "market-5",
+      "market-7"
+    ],
+    "price": 350,
+    "unit": "kg"
+  },
+  {
+    "id": "prod-4",
+    "name": "Tender Crispy Okra (Bhindi)",
+    "category": "Vegetables",
+    "season": "Summer",
+    "peakMonths": [
+      "June",
+      "July",
+      "August",
+      "September"
+    ],
+    "description": "Small, tender green pods harvested at daybreak in Malir. Extremely fresh and snap-crisp, perfect for dry-spiced pan fry or savory stews.",
+    "nutritionHighlights": [
+      "High Soluble Fiber",
+      "Polyphenols",
+      "Magnesium",
+      "Vitamin B6"
+    ],
+    "storageTip": "Keep dry in a perforated paper bag in your refrigerator crisper. Only wash immediately before slicing and cooking.",
+    "image": "/images/produce/vegetables/Bhindi.jpg",
+    "marketIds": [
+      "market-1",
+      "market-2",
+      "market-4",
+      "market-7"
+    ],
+    "price": 220,
+    "unit": "kg"
+  },
+  {
+    "id": "prod-5",
+    "name": "Fresh Coriander & Spearmint",
+    "category": "Herbs",
+    "season": "Year-round",
+    "peakMonths": [
+      "All Year"
+    ],
+    "description": "Intensely aromatic freshly bundled herb bouquets. Vibrant green sprigs of sweet mountain mint and sharp coriander with rooted stems.",
+    "nutritionHighlights": [
+      "Essential Oils",
+      "Antioxidants",
+      "Natural Detoxifier",
+      "Vitamin K"
+    ],
+    "storageTip": "Trim stem ends and place standing upright in a jar with an inch of fresh water, covered loosely with a reusable cloth or silicone bag.",
+    "image": "/images/produce/herbs/Fresh-coriander.jpg",
+    "marketIds": [
+      "market-2",
+      "market-4",
+      "market-6",
+      "market-8"
+    ],
+    "price": 80,
+    "unit": "bunch"
+  },
+  {
+    "id": "prod-6",
+    "name": "Sweet Pink Guavas (Amrood)",
+    "category": "Fruits",
+    "season": "Autumn",
+    "peakMonths": [
+      "September",
+      "October",
+      "November"
+    ],
+    "description": "Fragrant round guavas with tender pink cores and crunchy pale exteriors. Bursting with floral sweet fragrance and tangy notes.",
+    "nutritionHighlights": [
+      "4x More Vitamin C than Oranges",
+      "High Dietary Fiber",
+      "Potassium"
+    ],
+    "storageTip": "Ripen on the counter until they give off a heady floral aroma. Once ripe, store in the fridge for up to 4 days.",
+    "image": "/images/produce/fruits/pinkguava.jpg",
+    "marketIds": [
+      "market-3",
+      "market-5",
+      "market-7"
+    ],
+    "price": 240,
+    "unit": "kg"
+  },
+  {
+    "id": "prod-7",
+    "name": "Farm Fresh Pasture Eggs",
+    "category": "Dairy & Eggs",
+    "season": "Year-round",
+    "peakMonths": [
+      "All Year"
+    ],
+    "description": "Unwashed farm eggs gathered every morning from pasture-roaming Desi hens. Feature thick protective shells and deep amber-orange yolks.",
+    "nutritionHighlights": [
+      "Complete Protein",
+      "Choline for Brain Health",
+      "Omega-3 Fatty Acids"
+    ],
+    "storageTip": "Store pointed end down in carton in the main refrigerator body (not door shelves) to maintain steady chill.",
+    "image": "/images/produce/dairy/Farm.jpg",
+    "marketIds": [
+      "market-1",
+      "market-3",
+      "market-5",
+      "market-6",
+      "market-7"
+    ],
+    "price": 380,
+    "unit": "dozen"
+  },
+  {
+    "id": "prod-8",
+    "name": "Raw Wildflower & Sidr Honey",
+    "category": "Honey & Preserves",
+    "season": "Autumn",
+    "peakMonths": [
+      "October",
+      "November",
+      "December"
+    ],
+    "description": "Unfiltered, unpasteurized monofloral honey sustainably harvested from wild jujube (Sidr) groves. Rich butterscotch flavor with natural pollen crystals.",
+    "nutritionHighlights": [
+      "Antimicrobial Enzymes",
+      "Bioactive Flavonoids",
+      "Zero Additives"
+    ],
+    "storageTip": "Store at ambient room temperature in a dark pantry. Never refrigerate; gentle warming in a bowl of warm water decrystallizes honey.",
+    "image": "/images/produce/honey/Raw-Wildflower.jpg",
+    "marketIds": [
+      "market-1",
+      "market-3",
+      "market-6",
+      "market-8"
+    ],
+    "price": 1450,
+    "unit": "500g jar"
+  },
+  {
+    "id": "prod-9",
+    "name": "Genovese & Sweet Thai Basil",
+    "category": "Herbs",
+    "season": "Summer",
+    "peakMonths": [
+      "May",
+      "June",
+      "July",
+      "August"
+    ],
+    "description": "Deep emerald leaves with sweet anise and peppery cloves notes. Grown without chemicals, hand-clipped just before morning market display.",
+    "nutritionHighlights": [
+      "Eugenol & Linalool",
+      "Anti-inflammatory",
+      "Vitamin K & Beta-Carotene"
+    ],
+    "storageTip": "Like flowers, keep stems in a cup of water on the kitchen counter. Refrigeration turns basil leaves black.",
+    "image": "/images/produce/herbs/Genovese.jpg",
+    "marketIds": [
+      "market-2",
+      "market-4",
+      "market-8"
+    ],
+    "price": 150,
+    "unit": "bunch"
+  },
+  {
+    "id": "prod-10",
+    "name": "Hydroponic Butterhead Lettuce",
+    "category": "Vegetables",
+    "season": "Winter",
+    "peakMonths": [
+      "December",
+      "January",
+      "February",
+      "March"
+    ],
+    "description": "Soft, buttery green heads grown in pristine closed-loop mineral water systems. Sold with living roots attached for extraordinary lasting crispness.",
+    "nutritionHighlights": [
+      "High Water Content (Hydrating)",
+      "Folate",
+      "Vitamin A",
+      "Very Low Sodium"
+    ],
+    "storageTip": "Keep roots immersed in shallow water or store in sealed container in the fridge with a slightly damp paper towel.",
+    "image": "/images/produce/vegetables/haraypatty.jpg",
+    "marketIds": [
+      "market-2",
+      "market-4",
+      "market-7"
+    ],
+    "price": 280,
+    "unit": "pack"
+  },
+  {
+    "id": "prod-11",
+    "name": "Artisanal Aged Goat Feta",
+    "category": "Dairy & Eggs",
+    "season": "Year-round",
+    "peakMonths": [
+      "All Year"
+    ],
+    "description": "Tangy, crumbly white cheese handcrafted in small batches using whole goat milk and sea salt brine. Creamy mouthfeel with a pleasant herbal finish.",
+    "nutritionHighlights": [
+      "Easier Digestion A2 Protein",
+      "Calcium",
+      "Probiotics",
+      "Phosphorus"
+    ],
+    "storageTip": "Keep submerged in original whey brine inside a sealed glass jar in your refrigerator.",
+    "image": "/images/produce/dairy/Artisanal.jpg",
+    "marketIds": [
+      "market-1",
+      "market-4",
+      "market-8"
+    ],
+    "price": 850,
+    "unit": "250g"
+  },
+  {
+    "id": "prod-12",
+    "name": "Crunchy Red Radishes & Baby Turnips",
+    "category": "Vegetables",
+    "season": "Winter",
+    "peakMonths": [
+      "November",
+      "December",
+      "January",
+      "February"
+    ],
+    "description": "Crisp scarlet globes with snow-white interiors and peppery bite. Freshly plucked with edible, vitamin-dense leafy greens intact.",
+    "nutritionHighlights": [
+      "Anthocyanins",
+      "Vitamin C",
+      "Natural Diuretic Compounds"
+    ],
+    "storageTip": "Remove green tops immediately upon arriving home to prevent roots from losing moisture. Store roots in cold water in fridge.",
+    "image": "/images/produce/vegetables/golmooli.jpg",
+    "marketIds": [
+      "market-2",
+      "market-4",
+      "market-6"
+    ],
+    "price": 140,
+    "unit": "kg"
+  },
+  {
+    "id": "prod-13",
+    "name": "Cold-Pressed Raw Mustard Oil",
+    "category": "Honey & Preserves",
+    "season": "Year-round",
+    "peakMonths": [
+      "All Year"
+    ],
+    "description": "Traditional wooden-ghani pressed yellow mustard seed oil. Pungent, deeply warming aroma with natural antioxidants preserved without heat processing.",
+    "nutritionHighlights": [
+      "Balanced Omega-3 & 6",
+      "Glucosinolates",
+      "Natural Preservative"
+    ],
+    "storageTip": "Keep in an opaque amber glass bottle in a cool cupboard away from sunlight to prevent oxidation.",
+    "image": "/images/produce/honey/Cold-Pressed.jpg",
+    "marketIds": [
+      "market-1",
+      "market-3",
+      "market-5",
+      "market-7"
+    ],
+    "price": 650,
+    "unit": "litre"
+  },
+  {
+    "id": "prod-14",
+    "name": "Stone-Milled Whole Chakki Atta",
+    "category": "Artisan & Bakery",
+    "season": "Year-round",
+    "peakMonths": [
+      "All Year"
+    ],
+    "description": "Slowly stone-ground organic heritage wheat preserving the wheat germ, bran, and essential endosperm oils for fluffy, nutty, aromatic rotis.",
+    "nutritionHighlights": [
+      "100% Whole Grain Fiber",
+      "B Vitamins",
+      "Magnesium & Zinc"
+    ],
+    "storageTip": "Keep in a cool dry steel tin or airtight container. For long storage, can be kept refrigerated.",
+    "image": "/images/produce/artisan/Stone.jpg",
+    "marketIds": [
+      "market-1",
+      "market-3",
+      "market-5",
+      "market-7",
+      "market-8"
+    ],
+    "price": 420,
+    "unit": "5kg bag"
+  },
+  {
+    "id": "prod-15",
+    "name": "Juicy Kinnow & Mandarin Oranges",
+    "category": "Fruits",
+    "season": "Winter",
+    "peakMonths": [
+      "December",
+      "January",
+      "February"
+    ],
+    "description": "Vibrant orange winter citrus from family groves. Renowned for extremely high juice content, vivid aroma, and tangy-sweet refreshing profile.",
+    "nutritionHighlights": [
+      "Massive Vitamin C Boost",
+      "Hesperidin",
+      "Hydrating Electrolytes"
+    ],
+    "storageTip": "Keep in a cool fruit bowl for up to 7 days, or in the fruit drawer of the refrigerator for up to 3 weeks.",
+    "image": "/images/produce/fruits/Oranges.jpg",
+    "marketIds": [
+      "market-2",
+      "market-5",
+      "market-7"
+    ],
+    "price": 260,
+    "unit": "dozen"
+  },
+  {
+    "id": "prod-16",
+    "name": "Wood-Fired Wild Sourdough Boule",
+    "category": "Artisan & Bakery",
+    "season": "Year-round",
+    "peakMonths": [
+      "All Year"
+    ],
+    "description": "Crusty artisan bread fermented for 36 hours using a wild 8-year-old starter culture. Blistered golden crust with an airy, open, chewy crumb.",
+    "nutritionHighlights": [
+      "Slow Fermented Probiotics",
+      "Easier on Gluten Sensitivity",
+      "Low Glycemic Index"
+    ],
+    "storageTip": "Keep cut-side down on a wooden breadboard or in a linen bag. Do not store in plastic or refrigerator which stales bread.",
+    "image": "/images/produce/artisan/Wood.jpg",
+    "marketIds": [
+      "market-1",
+      "market-4",
+      "market-6",
+      "market-8"
+    ],
+    "price": 490,
+    "unit": "loaf"
+  },
+  {
+    "id": "prod-17",
+    "name": "Sweet Red Strawberries",
+    "category": "Fruits",
+    "season": "Spring",
+    "peakMonths": [
+      "January",
+      "February",
+      "March",
+      "April"
+    ],
+    "description": "Fragrant ruby red berries grown along riverbanks. Hand-picked ripe each morning, bursting with intense sweetness and natural fragrance.",
+    "nutritionHighlights": [
+      "Vitamin C Powerhouse",
+      "Manganese",
+      "Ellagic Acid Antioxidants"
+    ],
+    "storageTip": "Store unwashed in a single layer with a dry paper towel in a breathable container in the fridge. Wash right before snacking.",
+    "image": "/images/produce/fruits/Strawberry.jpg",
+    "marketIds": [
+      "market-2",
+      "market-5",
+      "market-8"
+    ],
+    "price": 380,
+    "unit": "box"
+  },
+  {
+    "id": "prod-18",
+    "name": "Cultured Golden Buffalo Butter",
+    "category": "Dairy & Eggs",
+    "season": "Year-round",
+    "peakMonths": [
+      "All Year"
+    ],
+    "description": "Traditionally churned and slowly cultured white and golden farm butter. Rich, silky, slightly tangy taste unmatched for warm parathas and toast.",
+    "nutritionHighlights": [
+      "Natural Vitamin A & D",
+      "Conjugated Linoleic Acid (CLA)",
+      "Zero Preservatives"
+    ],
+    "storageTip": "Keep in a ceramic butter bell at room temperature for daily spreading, or wrap tightly in parchment paper in the freezer.",
+    "image": "/images/produce/dairy/Cultured.jpg",
+    "marketIds": [
+      "market-3",
+      "market-5",
+      "market-6"
+    ],
+    "price": 720,
+    "unit": "500g"
+  },
+  {
+    "id": "prod-19",
+    "name": "Tender Malir Ridge Gourds (Tori)",
+    "category": "Vegetables",
+    "season": "Summer",
+    "peakMonths": [
+      "June",
+      "July",
+      "August",
+      "September"
+    ],
+    "description": "Crisp, slender emerald gourds picked at dawn in Malir fertile orchards. Exceptionally light, cooling, and mild for homestyle stews.",
+    "nutritionHighlights": [
+      "High Dietary Water Content",
+      "Low Glycemic",
+      "Vitamin C & Zinc"
+    ],
+    "storageTip": "Wrap in dry cotton cloth and store in the crisper drawer of your refrigerator for up to 5 days.",
+    "image": "/images/produce/vegetables/tori.jpg",
+    "marketIds": [
+      "market-1",
+      "market-4",
+      "market-7"
+    ],
+    "price": 190,
+    "unit": "kg"
+  },
+  {
+    "id": "prod-20",
+    "name": "Crisp Desi Red Carrots (Gajar)",
+    "category": "Vegetables",
+    "season": "Winter",
+    "peakMonths": [
+      "November",
+      "December",
+      "January",
+      "February"
+    ],
+    "description": "Deep red, intensely sweet heirloom winter carrots pulled fresh from alluvial soil. Unmatched for halwa, fresh morning juice, and winter salads.",
+    "nutritionHighlights": [
+      "High Lycopene & Beta-Carotene",
+      "Vitamin A",
+      "Natural Potassium"
+    ],
+    "storageTip": "Cut off the green tops and keep submerged in a container of cold water in the fridge to preserve maximum crunch.",
+    "image": "/images/produce/vegetables/carrot.jpg",
+    "marketIds": [
+      "market-1",
+      "market-2",
+      "market-5",
+      "market-8"
+    ],
+    "price": 160,
+    "unit": "kg"
+  },
+  {
+    "id": "prod-21",
+    "name": "Sweet Bell Peppers & Pimentos",
+    "category": "Vegetables",
+    "season": "Spring",
+    "peakMonths": [
+      "March",
+      "April",
+      "May"
+    ],
+    "description": "Crisp, thick-walled sweet bell peppers ripened naturally on the plant under mild spring sun. Vibrant jewel tones of red, yellow, and green.",
+    "nutritionHighlights": [
+      "300% Daily Vitamin C",
+      "Bioflavonoids",
+      "Capsanthin"
+    ],
+    "storageTip": "Keep dry in a breathable paper bag in the crisper drawer; avoid washing until ready to dice.",
+    "image": "/images/produce/vegetables/Shimla.jpg",
+    "marketIds": [
+      "market-3",
+      "market-5",
+      "market-6"
+    ],
+    "price": 290,
+    "unit": "kg"
+  },
+  {
+    "id": "prod-22",
+    "name": "Kandahari Ruby Pomegranates (Anaar)",
+    "category": "Fruits",
+    "season": "Autumn",
+    "peakMonths": [
+      "September",
+      "October",
+      "November"
+    ],
+    "description": "Lustrous crimson arils brimming with tart-sweet ruby juice. Grown in arid hillside orchards and harvested at complete sugar maturity.",
+    "nutritionHighlights": [
+      "Punicalagins (Potent Antioxidants)",
+      "Vitamin C & K",
+      "Heart-Healthy Polyphenols"
+    ],
+    "storageTip": "Whole pomegranates keep at room temperature for 10 days, or refrigerated for up to a month.",
+    "image": "/images/produce/fruits/pomegranet.jpg",
+    "marketIds": [
+      "market-1",
+      "market-3",
+      "market-7"
+    ],
+    "price": 480,
+    "unit": "kg"
+  },
+  {
+    "id": "prod-23",
+    "name": "Chaunsa Honey Summer Mangoes",
+    "category": "Fruits",
+    "season": "Summer",
+    "peakMonths": [
+      "July",
+      "August",
+      "September"
+    ],
+    "description": "The world-famous aromatic golden mango known for its intense floral honeyed bouquet and rich, melt-in-mouth juicy sweetness.",
+    "nutritionHighlights": [
+      "Prebiotic Dietary Fiber",
+      "Vitamins A & C",
+      "Enzymatic Digestion Aid"
+    ],
+    "storageTip": "Submerge in cold well water for an hour before peeling and serving chilled for the authentic regional experience.",
+    "image": "/images/produce/fruits/Honeymango.jpg",
+    "marketIds": [
+      "market-1",
+      "market-2",
+      "market-5",
+      "market-7"
+    ],
+    "price": 380,
+    "unit": "kg"
+  },
+  {
+    "id": "prod-24",
+    "name": "Fresh Swat Golden Apricots (Khubani)",
+    "category": "Fruits",
+    "season": "Spring",
+    "peakMonths": [
+      "April",
+      "May",
+      "June"
+    ],
+    "description": "Delicate golden-orange stone fruits with velvety skin and sweet musky flesh. Hand-picked in northern valleys and brought down by cooperative transport.",
+    "nutritionHighlights": [
+      "Rich in Lutein & Zeaxanthin",
+      "Vitamin A",
+      "Natural Potassium"
+    ],
+    "storageTip": "Leave at room temperature until fragrant, then chill in a single layer in the refrigerator.",
+    "image": "/images/produce/fruits/Appricot.jpg",
+    "marketIds": [
+      "market-2",
+      "market-4",
+      "market-6"
+    ],
+    "price": 420,
+    "unit": "kg"
+  },
+  {
+    "id": "prod-25",
+    "name": "Sun-Ripened Purple Figs (Anjeer)",
+    "category": "Fruits",
+    "season": "Summer",
+    "peakMonths": [
+      "June",
+      "July",
+      "August"
+    ],
+    "description": "Soft, voluptuous deep purple figs with pink honey-sweet jammy centers. Highly perishable and harvested hours before market arrival.",
+    "nutritionHighlights": [
+      "Exceptional Dietary Calcium",
+      "Soluble Pectin Fiber",
+      "Magnesium"
+    ],
+    "storageTip": "Enjoy within 48 hours of purchase. Keep refrigerated in a paper-lined tray without stacking.",
+    "image": "/images/produce/fruits/Injeer.jpg",
+    "marketIds": [
+      "market-1",
+      "market-6",
+      "market-8"
+    ],
+    "price": 550,
+    "unit": "box"
+  },
+  {
+    "id": "prod-26",
+    "name": "Wild Rosemary & Fresh Lemongrass",
+    "category": "Herbs",
+    "season": "Spring",
+    "peakMonths": [
+      "March",
+      "April",
+      "May"
+    ],
+    "description": "Resinous wild pine needles of mountain rosemary paired with crisp citrusy lemongrass stalks. Perfect for herbal teas and artisan roast marinades.",
+    "nutritionHighlights": [
+      "Rosmarinic Acid",
+      "Citronellol",
+      "Cognitive Boosting Aromatics"
+    ],
+    "storageTip": "Wrap rosemary in slightly damp paper towels inside a sealed container; keep lemongrass standing in a cup of water.",
+    "image": "/images/produce/herbs/Wild.jpg",
+    "marketIds": [
+      "market-1",
+      "market-3",
+      "market-5"
+    ],
+    "price": 160,
+    "unit": "bunch"
+  },
+  {
+    "id": "prod-27",
+    "name": "Kasuri Fenugreek (Methi) & Fragrant Dill",
+    "category": "Herbs",
+    "season": "Winter",
+    "peakMonths": [
+      "November",
+      "December",
+      "January",
+      "February"
+    ],
+    "description": "Distinctive small green leaves with rich bitter-sweet herbal fragrance alongside feathery green dill sprigs for authentic regional winter cooking.",
+    "nutritionHighlights": [
+      "Trigonelline for Blood Sugar Balance",
+      "Iron & Saponins",
+      "Flavonoids"
+    ],
+    "storageTip": "Wash thoroughly to remove garden loam, pat dry completely, and freeze in sealed bags or keep chilled in cotton towels.",
+    "image": "/images/produce/herbs/Kasuri.jpg",
+    "marketIds": [
+      "market-2",
+      "market-4",
+      "market-7"
+    ],
+    "price": 130,
+    "unit": "bunch"
+  },
+  {
+    "id": "prod-28",
+    "name": "Raw Farm Buffalo Mozzarella & Desi Paneer",
+    "category": "Dairy & Eggs",
+    "season": "Year-round",
+    "peakMonths": [
+      "All Year"
+    ],
+    "description": "Creamy, pillowy white cheese handcrafted every dawn from grass-fed Nili-Ravi river buffalo milk. Exceptionally rich in natural milk fats and calcium.",
+    "nutritionHighlights": [
+      "High Bioavailable Calcium",
+      "Dense Casein Protein",
+      "Zero Rennet Chemicals"
+    ],
+    "storageTip": "Keep paneer submerged in lightly salted cold water inside the fridge; change water every 2 days to maintain freshness.",
+    "image": "/images/produce/dairy/Raw.jpg",
+    "marketIds": [
+      "market-1",
+      "market-5",
+      "market-6",
+      "market-8"
+    ],
+    "price": 680,
+    "unit": "500g"
+  },
+  {
+    "id": "prod-29",
+    "name": "Artisan Fig & Seville Orange Marmalade",
+    "category": "Honey & Preserves",
+    "season": "Autumn",
+    "peakMonths": [
+      "October",
+      "November",
+      "December"
+    ],
+    "description": "Slow-simmered whole fruit preserves made in small copper cauldrons with wild Sindh figs and bitter seville oranges. Low cane sugar, vibrant flavor.",
+    "nutritionHighlights": [
+      "Natural Citrus Pectin",
+      "Polyphenols",
+      "No High-Fructose Corn Syrup"
+    ],
+    "storageTip": "Once jar seal is opened, store in the refrigerator and use clean dry utensils to extend shelf life for up to 3 months.",
+    "image": "/images/produce/honey/Artisan.jpg",
+    "marketIds": [
+      "market-1",
+      "market-3",
+      "market-7"
+    ],
+    "price": 520,
+    "unit": "jar"
+  },
+  {
+    "id": "prod-30",
+    "name": "Cold-Pressed Raw Black Sesame (Til) Oil",
+    "category": "Honey & Preserves",
+    "season": "Winter",
+    "peakMonths": [
+      "December",
+      "January",
+      "February"
+    ],
+    "description": "Unrefined virgin black sesame oil expeller-pressed on traditional stone mills. Deep nutty aroma, rich warming character for dressing and herbal care.",
+    "nutritionHighlights": [
+      "Sesamol & Sesamin Antioxidants",
+      "Rich in Vitamin E",
+      "Healthy Monounsaturated Fats"
+    ],
+    "storageTip": "Keep in a dark glass bottle in a cool dry pantry away from the stove.",
+    "image": "/images/produce/honey/Cold.jpg",
+    "marketIds": [
+      "market-2",
+      "market-4",
+      "market-6"
+    ],
+    "price": 890,
+    "unit": "500ml"
+  },
+  {
+    "id": "prod-31",
+    "name": "Stone-Baked Saffron Sheermal & Naan",
+    "category": "Artisan & Bakery",
+    "season": "Spring",
+    "peakMonths": [
+      "March",
+      "April",
+      "May"
+    ],
+    "description": "Golden, slightly sweet leavened bread kneaded with farm milk, pure butter ghee, and steeped saffron threads, baked in high-heat clay tandoors.",
+    "nutritionHighlights": [
+      "Enriched Grain Energy",
+      "Saffron Crocin",
+      "Traditional Fermentation"
+    ],
+    "storageTip": "Wrap in cotton roti cloth. Warm on a dry cast-iron skillet for 30 seconds before eating.",
+    "image": "/images/produce/artisan/Stone-Baked.jpg",
+    "marketIds": [
+      "market-1",
+      "market-4",
+      "market-8"
+    ],
+    "price": 250,
+    "unit": "pack of 2"
+  },
+  {
+    "id": "prod-32",
+    "name": "Roasted Cardamom & Honey Almond Granola",
+    "category": "Artisan & Bakery",
+    "season": "Summer",
+    "peakMonths": [
+      "June",
+      "July",
+      "August"
+    ],
+    "description": "Small-batch oven-toasted rolled oats, local whole almonds, pumpkin seeds, and green cardamom pods glazed with raw Sidr blossom honey.",
+    "nutritionHighlights": [
+      "Whole Grain Beta-Glucan Fiber",
+      "Plant Protein",
+      "Vitamin E & Healthy Lipids"
+    ],
+    "storageTip": "Keep in an airtight mason jar in a cool dry spot to preserve satisfying snap and crunch.",
+    "image": "/images/produce/artisan/Roasted.jpg",
+    "marketIds": [
+      "market-2",
+      "market-5",
+      "market-7"
+    ],
+    "price": 780,
+    "unit": "350g pack"
+  }
+]

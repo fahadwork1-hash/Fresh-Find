@@ -1,0 +1,1001 @@
+[
+  {
+    "id": "market-1",
+    "name": "Clifton Organic Farmer's Market",
+    "tagline": "Purely pesticide-free heirlooms and artisan community stalls",
+    "area": "Clifton",
+    "address": "Block 4, Marine Promenade, Near Bilawal Chowrangi, Clifton",
+    "coordinates": {
+      "lat": 24.8138,
+      "lng": 67.0304
+    },
+    "image": "/images/market/Clifton.jpg",
+    "rating": 4.9,
+    "reviewsCount": 218,
+    "badge": "Certified Organic",
+    "featured": true,
+    "description": "Karachi's premier weekend farmers gathering. Features over 45 organic growers from Malir, Thatta, and Hyderabad. Renowned for heritage seed tomatoes, cold-pressed oils, wild Sidr honey, and handcrafted dairy products.",
+    "highlights": [
+      "Pesticide-Free Certified",
+      "Wheelchair Accessible",
+      "Free Parking",
+      "Artisan Bakery Stalls",
+      "Live Folk Music"
+    ],
+    "schedule": {
+      "Monday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Tuesday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Wednesday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Thursday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Friday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Saturday": {
+        "isOpen": true,
+        "openTime": "07:30",
+        "closeTime": "14:30",
+        "display": "7:30 AM - 2:30 PM"
+      },
+      "Sunday": {
+        "isOpen": true,
+        "openTime": "08:00",
+        "closeTime": "15:00",
+        "display": "8:00 AM - 3:00 PM"
+      }
+    },
+    "produceIds": [
+      "prod-1",
+      "prod-2",
+      "prod-3",
+      "prod-4",
+      "prod-7",
+      "prod-8",
+      "prod-11",
+      "prod-13",
+      "prod-14",
+      "prod-16"
+    ],
+    "contact": {
+      "phone": "+92 (21) 3587-4491",
+      "email": "clifton.market@freshfind.org",
+      "manager": "Amina Qureshi"
+    }
+  },
+  {
+    "id": "market-2",
+    "name": "DHA Creek Park Harvest Fair",
+    "tagline": "Coastal open-air bazaar with fresh morning picks & microgreens",
+    "area": "DHA Phase 8",
+    "address": "Gate 2, Creek Waterfront Promenade, DHA Phase 8",
+    "coordinates": {
+      "lat": 24.7892,
+      "lng": 67.0654
+    },
+    "image": "/images/market/DHA.jpg",
+    "rating": 4.8,
+    "reviewsCount": 174,
+    "badge": "Community Favorite",
+    "featured": true,
+    "description": "Enjoy crisp sea breezes while browsing farm-fresh greens, hydroponic lettuces, gourmet mushrooms, and freshly pressed sugarcane juices. Includes family activities and composting workshops every Sunday.",
+    "highlights": [
+      "Coastal Breeze Setting",
+      "Hydroponic Produce",
+      "Pet Friendly",
+      "Kids Nature Workshop",
+      "Compost Drop-off"
+    ],
+    "schedule": {
+      "Monday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Tuesday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Wednesday": {
+        "isOpen": true,
+        "openTime": "08:00",
+        "closeTime": "13:00",
+        "display": "8:00 AM - 1:00 PM"
+      },
+      "Thursday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Friday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Saturday": {
+        "isOpen": true,
+        "openTime": "07:00",
+        "closeTime": "13:30",
+        "display": "7:00 AM - 1:30 PM"
+      },
+      "Sunday": {
+        "isOpen": true,
+        "openTime": "07:00",
+        "closeTime": "14:00",
+        "display": "7:00 AM - 2:00 PM"
+      }
+    },
+    "produceIds": [
+      "prod-2",
+      "prod-4",
+      "prod-5",
+      "prod-9",
+      "prod-10",
+      "prod-12",
+      "prod-15",
+      "prod-17"
+    ],
+    "contact": {
+      "phone": "+92 (21) 3534-8820",
+      "email": "creek.harvest@freshfind.org",
+      "manager": "Tariq Mansoor"
+    }
+  },
+  {
+    "id": "market-3",
+    "name": "PECHS Green Bazaar & Agro Cooperative",
+    "tagline": "Midtown hub for local Sindh orchards, citrus, and raw mountain honey",
+    "area": "PECHS",
+    "address": "Community Grounds, Block 2, Shahrah-e-Quaideen, PECHS",
+    "coordinates": {
+      "lat": 24.8698,
+      "lng": 67.0622
+    },
+    "image": "/images/market/PECHS.jpg",
+    "rating": 4.7,
+    "reviewsCount": 142,
+    "badge": "Midweek Special",
+    "featured": true,
+    "description": "Centrally located cooperative market uniting smallholder family farmers. Famous for fresh seasonal citrus, ripe Sindhri and Chaunsa mangoes, authentic churned butter, and farm fresh eggs at cooperative direct rates.",
+    "highlights": [
+      "Direct Cooperative Pricing",
+      "Covered Stalls",
+      "Shaded Seating",
+      "Tea & Snack Corner",
+      "Fresh Juice Bar"
+    ],
+    "schedule": {
+      "Monday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Tuesday": {
+        "isOpen": true,
+        "openTime": "08:00",
+        "closeTime": "17:00",
+        "display": "8:00 AM - 5:00 PM"
+      },
+      "Wednesday": {
+        "isOpen": true,
+        "openTime": "08:00",
+        "closeTime": "17:00",
+        "display": "8:00 AM - 5:00 PM"
+      },
+      "Thursday": {
+        "isOpen": true,
+        "openTime": "08:00",
+        "closeTime": "17:00",
+        "display": "8:00 AM - 5:00 PM"
+      },
+      "Friday": {
+        "isOpen": true,
+        "openTime": "08:00",
+        "closeTime": "12:30",
+        "display": "8:00 AM - 12:30 PM"
+      },
+      "Saturday": {
+        "isOpen": true,
+        "openTime": "08:00",
+        "closeTime": "18:00",
+        "display": "8:00 AM - 6:00 PM"
+      },
+      "Sunday": {
+        "isOpen": true,
+        "openTime": "08:00",
+        "closeTime": "18:00",
+        "display": "8:00 AM - 6:00 PM"
+      }
+    },
+    "produceIds": [
+      "prod-1",
+      "prod-3",
+      "prod-6",
+      "prod-7",
+      "prod-8",
+      "prod-13",
+      "prod-14",
+      "prod-18"
+    ],
+    "contact": {
+      "phone": "+92 (21) 3455-9102",
+      "email": "pechs.bazaar@freshfind.org",
+      "manager": "Farhana Siddiqui"
+    }
+  },
+  {
+    "id": "market-4",
+    "name": "Gulshan Heritage Botanic Market",
+    "tagline": "Fragrant herbs, edible flowers, and leafy green bundles",
+    "area": "Gulshan-e-Iqbal",
+    "address": "Near University Road, Block 6, Gulshan-e-Iqbal",
+    "coordinates": {
+      "lat": 24.918,
+      "lng": 67.0971
+    },
+    "image": "/images/market/Gulshan.jpg",
+    "rating": 4.6,
+    "reviewsCount": 115,
+    "badge": "Herb Specialists",
+    "featured": false,
+    "description": "Surrounded by lush nursery gardens, this botanical market specializes in live potted culinary herbs, medicinal plants, heirloom squash, fresh dill, mint, coriander, and locally milled grains.",
+    "highlights": [
+      "Live Herb Pots",
+      "Garden Seed Exchange",
+      "Composting Consultations",
+      "Bicycle Parking",
+      "Organic Plant Feed"
+    ],
+    "schedule": {
+      "Monday": {
+        "isOpen": true,
+        "openTime": "08:30",
+        "closeTime": "18:00",
+        "display": "8:30 AM - 6:00 PM"
+      },
+      "Tuesday": {
+        "isOpen": true,
+        "openTime": "08:30",
+        "closeTime": "18:00",
+        "display": "8:30 AM - 6:00 PM"
+      },
+      "Wednesday": {
+        "isOpen": true,
+        "openTime": "08:30",
+        "closeTime": "18:00",
+        "display": "8:30 AM - 6:00 PM"
+      },
+      "Thursday": {
+        "isOpen": true,
+        "openTime": "08:30",
+        "closeTime": "18:00",
+        "display": "8:30 AM - 6:00 PM"
+      },
+      "Friday": {
+        "isOpen": true,
+        "openTime": "08:30",
+        "closeTime": "18:00",
+        "display": "8:30 AM - 6:00 PM"
+      },
+      "Saturday": {
+        "isOpen": true,
+        "openTime": "08:00",
+        "closeTime": "19:00",
+        "display": "8:00 AM - 7:00 PM"
+      },
+      "Sunday": {
+        "isOpen": true,
+        "openTime": "08:00",
+        "closeTime": "19:00",
+        "display": "8:00 AM - 7:00 PM"
+      }
+    },
+    "produceIds": [
+      "prod-4",
+      "prod-5",
+      "prod-9",
+      "prod-10",
+      "prod-11",
+      "prod-12",
+      "prod-16"
+    ],
+    "contact": {
+      "phone": "+92 (21) 3498-3310",
+      "email": "gulshan.botanic@freshfind.org",
+      "manager": "Rashid Kazmi"
+    }
+  },
+  {
+    "id": "market-5",
+    "name": "Saddar Empress Heritage Green Court",
+    "tagline": "Historic market square with generational farm families",
+    "area": "Saddar",
+    "address": "East Courtyard, Empress Market Square, Preedy Street, Saddar",
+    "coordinates": {
+      "lat": 24.8615,
+      "lng": 67.0275
+    },
+    "image": "/images/market/Sadar.jpg",
+    "rating": 4.8,
+    "reviewsCount": 260,
+    "badge": "Historic Landmark",
+    "featured": false,
+    "description": "One of the most storied agricultural hubs in the region. Features heirloom spice vendors, country eggs from free-range poultry, stone-milled whole grains, and seasonal gourds arriving at dawn each day.",
+    "highlights": [
+      "Historic Victorian Architecture",
+      "Spice Grinding on Site",
+      "Direct Metro Bus Access",
+      "Bustling Morning Vibe",
+      "Wholesale & Retail Stalls"
+    ],
+    "schedule": {
+      "Monday": {
+        "isOpen": true,
+        "openTime": "06:00",
+        "closeTime": "15:00",
+        "display": "6:00 AM - 3:00 PM"
+      },
+      "Tuesday": {
+        "isOpen": true,
+        "openTime": "06:00",
+        "closeTime": "15:00",
+        "display": "6:00 AM - 3:00 PM"
+      },
+      "Wednesday": {
+        "isOpen": true,
+        "openTime": "06:00",
+        "closeTime": "15:00",
+        "display": "6:00 AM - 3:00 PM"
+      },
+      "Thursday": {
+        "isOpen": true,
+        "openTime": "06:00",
+        "closeTime": "15:00",
+        "display": "6:00 AM - 3:00 PM"
+      },
+      "Friday": {
+        "isOpen": true,
+        "openTime": "06:00",
+        "closeTime": "13:00",
+        "display": "6:00 AM - 1:00 PM"
+      },
+      "Saturday": {
+        "isOpen": true,
+        "openTime": "06:00",
+        "closeTime": "16:00",
+        "display": "6:00 AM - 4:00 PM"
+      },
+      "Sunday": {
+        "isOpen": true,
+        "openTime": "06:00",
+        "closeTime": "14:00",
+        "display": "6:00 AM - 2:00 PM"
+      }
+    },
+    "produceIds": [
+      "prod-1",
+      "prod-2",
+      "prod-3",
+      "prod-6",
+      "prod-7",
+      "prod-13",
+      "prod-14",
+      "prod-15",
+      "prod-17",
+      "prod-18"
+    ],
+    "contact": {
+      "phone": "+92 (21) 3272-1090",
+      "email": "empress.heritage@freshfind.org",
+      "manager": "Khurram Baig"
+    }
+  },
+  {
+    "id": "market-6",
+    "name": "North Nazimabad Sunshine Agro Fair",
+    "tagline": "Family-first neighborhood market celebrating seasonal abundance",
+    "area": "North Nazimabad",
+    "address": "Hyderi Community Park Grounds, Block H, North Nazimabad",
+    "coordinates": {
+      "lat": 24.9353,
+      "lng": 67.0392
+    },
+    "image": "/images/market/Nazimabad.jpg",
+    "rating": 4.5,
+    "reviewsCount": 98,
+    "badge": "Neighborhood Gem",
+    "featured": false,
+    "description": "A warm suburban gathering where local growers bring crunchy carrots, fresh radishes, cauliflower, and pasture eggs. Known for great banter, friendly prices, and home baked sourdough breads.",
+    "highlights": [
+      "Stroller Friendly",
+      "Play Area for Children",
+      "Fresh Sourdough Bread",
+      "Pickle & Preserve Tasting",
+      "Ample Street Parking"
+    ],
+    "schedule": {
+      "Monday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Tuesday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Wednesday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Thursday": {
+        "isOpen": true,
+        "openTime": "09:00",
+        "closeTime": "17:00",
+        "display": "9:00 AM - 5:00 PM"
+      },
+      "Friday": {
+        "isOpen": true,
+        "openTime": "09:00",
+        "closeTime": "13:00",
+        "display": "9:00 AM - 1:00 PM"
+      },
+      "Saturday": {
+        "isOpen": true,
+        "openTime": "08:00",
+        "closeTime": "16:00",
+        "display": "8:00 AM - 4:00 PM"
+      },
+      "Sunday": {
+        "isOpen": true,
+        "openTime": "08:00",
+        "closeTime": "15:00",
+        "display": "8:00 AM - 3:00 PM"
+      }
+    },
+    "produceIds": [
+      "prod-2",
+      "prod-3",
+      "prod-5",
+      "prod-7",
+      "prod-8",
+      "prod-12",
+      "prod-16",
+      "prod-18"
+    ],
+    "contact": {
+      "phone": "+92 (21) 3664-5511",
+      "email": "nazimabad.agro@freshfind.org",
+      "manager": "Saima Alam"
+    }
+  },
+  {
+    "id": "market-7",
+    "name": "Malir Valley Farm-to-Fork Market",
+    "tagline": "Direct harvests from the green agricultural heartland",
+    "area": "Malir",
+    "address": "Malir Riverbank Agricultural Center, Kala Board, Malir",
+    "coordinates": {
+      "lat": 24.8988,
+      "lng": 67.1994
+    },
+    "image": "/images/market/Malir.jpg",
+    "rating": 4.9,
+    "reviewsCount": 189,
+    "badge": "Direct Farm Source",
+    "featured": true,
+    "description": "Located directly at the edge of the historic Malir green belt. Vegetables are harvested less than 2 hours before the market gates open. Renowned for crispy okra, sweet guavas, and authentic whole milk.",
+    "highlights": [
+      "Zero Food Miles",
+      "Dawn Picked Produce",
+      "Fresh Farm Butter & Cream",
+      "Open Farming Tours",
+      "Bulk Wholesale Deals"
+    ],
+    "schedule": {
+      "Monday": {
+        "isOpen": true,
+        "openTime": "06:30",
+        "closeTime": "14:00",
+        "display": "6:30 AM - 2:00 PM"
+      },
+      "Tuesday": {
+        "isOpen": true,
+        "openTime": "06:30",
+        "closeTime": "14:00",
+        "display": "6:30 AM - 2:00 PM"
+      },
+      "Wednesday": {
+        "isOpen": true,
+        "openTime": "06:30",
+        "closeTime": "14:00",
+        "display": "6:30 AM - 2:00 PM"
+      },
+      "Thursday": {
+        "isOpen": true,
+        "openTime": "06:30",
+        "closeTime": "14:00",
+        "display": "6:30 AM - 2:00 PM"
+      },
+      "Friday": {
+        "isOpen": true,
+        "openTime": "06:30",
+        "closeTime": "12:30",
+        "display": "6:30 AM - 12:30 PM"
+      },
+      "Saturday": {
+        "isOpen": true,
+        "openTime": "06:00",
+        "closeTime": "15:00",
+        "display": "6:00 AM - 3:00 PM"
+      },
+      "Sunday": {
+        "isOpen": true,
+        "openTime": "06:00",
+        "closeTime": "15:00",
+        "display": "6:00 AM - 3:00 PM"
+      }
+    },
+    "produceIds": [
+      "prod-1",
+      "prod-3",
+      "prod-4",
+      "prod-6",
+      "prod-7",
+      "prod-10",
+      "prod-13",
+      "prod-14",
+      "prod-15"
+    ],
+    "contact": {
+      "phone": "+92 (21) 3440-2911",
+      "email": "malir.valley@freshfind.org",
+      "manager": "Javed Brohi"
+    }
+  },
+  {
+    "id": "market-8",
+    "name": "Bahria Eco-Village Produce Pavilion",
+    "tagline": "Modern sustainable marketplace showcasing organic innovations",
+    "area": "Bahria Town",
+    "address": "Green Avenue Oval, Precinct 1, Bahria Town",
+    "coordinates": {
+      "lat": 25.0163,
+      "lng": 67.3195
+    },
+    "image": "/images/market/Bahria.jpg",
+    "rating": 4.7,
+    "reviewsCount": 82,
+    "badge": "Eco-Friendly",
+    "featured": false,
+    "description": "An eco-conscious pavilion featuring solar-cooled produce sections, compostable packaging, exotic heirloom varieties, micro-herbs, and artisanal goat cheeses crafted by boutique dairies.",
+    "highlights": [
+      "100% Plastic-Free",
+      "Solar Powered Stalls",
+      "Artisanal Cheeses",
+      "Electric Vehicle Charging",
+      "Indoor & Outdoor Pavilions"
+    ],
+    "schedule": {
+      "Monday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Tuesday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Wednesday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Thursday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Friday": {
+        "isOpen": true,
+        "openTime": "15:00",
+        "closeTime": "21:00",
+        "display": "3:00 PM - 9:00 PM"
+      },
+      "Saturday": {
+        "isOpen": true,
+        "openTime": "09:00",
+        "closeTime": "20:00",
+        "display": "9:00 AM - 8:00 PM"
+      },
+      "Sunday": {
+        "isOpen": true,
+        "openTime": "09:00",
+        "closeTime": "20:00",
+        "display": "9:00 AM - 8:00 PM"
+      }
+    },
+    "produceIds": [
+      "prod-2",
+      "prod-5",
+      "prod-8",
+      "prod-9",
+      "prod-11",
+      "prod-14",
+      "prod-16",
+      "prod-17"
+    ],
+    "contact": {
+      "phone": "+92 (21) 3890-4100",
+      "email": "bahria.eco@freshfind.org",
+      "manager": "Zainab Cheema"
+    }
+  },
+  {
+    "id": "market-9",
+    "name": "DHA Phase 6 Bukhari Farmers Bazaar",
+    "tagline": "Artisan evening stalls with hydroponic greens and wild mountain honey",
+    "area": "DHA Phase 6",
+    "address": "Main Bukhari Commercial, Lane 8, DHA Phase 6, Karachi",
+    "coordinates": {
+      "lat": 24.8102,
+      "lng": 67.0621
+    },
+    "image": "/images/market/Bukhari.jpg",
+    "rating": 4.8,
+    "reviewsCount": 142,
+    "badge": "Artisan & Hydroponic",
+    "featured": false,
+    "description": "A vibrant community gathering in DHA Bukhari. Features smallholder grower stalls with freshly cut living herbs, hydroponic butterhead lettuces, pure Sidr honeys, and artisanal baked sourdoughs.",
+    "highlights": [
+      "Evening Market Hours",
+      "Artisan Cheeses & Bread",
+      "Solar-Lit Stalls",
+      "Pet Friendly Atmosphere"
+    ],
+    "schedule": {
+      "Monday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Tuesday": {
+        "isOpen": true,
+        "openTime": "16:00",
+        "closeTime": "22:00",
+        "display": "4:00 PM - 10:00 PM"
+      },
+      "Wednesday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Thursday": {
+        "isOpen": true,
+        "openTime": "16:00",
+        "closeTime": "22:00",
+        "display": "4:00 PM - 10:00 PM"
+      },
+      "Friday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Saturday": {
+        "isOpen": true,
+        "openTime": "16:00",
+        "closeTime": "22:00",
+        "display": "4:00 PM - 10:00 PM"
+      },
+      "Sunday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      }
+    },
+    "produceIds": [
+      "prod-8",
+      "prod-9",
+      "prod-10",
+      "prod-11",
+      "prod-16",
+      "prod-21",
+      "prod-25",
+      "prod-28",
+      "prod-32"
+    ],
+    "contact": {
+      "phone": "+92 (21) 3584-8890",
+      "email": "bukhari.market@freshfind.org",
+      "manager": "Farhan Jamil"
+    }
+  },
+  {
+    "id": "market-10",
+    "name": "Tariq Road Heritage Sunday Mandi",
+    "tagline": "Direct farmer truck harvests with fresh seasonal greens and fruits",
+    "area": "PECHS",
+    "address": "Near Jheel Park Grounds, Block 2, PECHS, Karachi",
+    "coordinates": {
+      "lat": 24.8712,
+      "lng": 67.0592
+    },
+    "image": "/images/market/Tariqroad.jpg",
+    "rating": 4.7,
+    "reviewsCount": 188,
+    "badge": "Budget Friendly",
+    "featured": false,
+    "description": "A traditional open-air grower market situated adjacent to Jheel Park. Farmers from interior Sindh arrive at twilight with loaded crates of red carrots, heirloom tomatoes, and crisp seasonal radishes.",
+    "highlights": [
+      "Early Dawn Harvests",
+      "Wholesale & Retail Rates",
+      "Direct Farm Trucks",
+      "Heirloom Vegetables"
+    ],
+    "schedule": {
+      "Monday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Tuesday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Wednesday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Thursday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Friday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Saturday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Sunday": {
+        "isOpen": true,
+        "openTime": "06:30",
+        "closeTime": "14:00",
+        "display": "6:30 AM - 2:00 PM"
+      }
+    },
+    "produceIds": [
+      "prod-1",
+      "prod-2",
+      "prod-4",
+      "prod-12",
+      "prod-15",
+      "prod-19",
+      "prod-20",
+      "prod-23"
+    ],
+    "contact": {
+      "phone": "+92 (300) 4567891",
+      "email": "tariqroad.mandi@freshfind.org",
+      "manager": "Chaudhry Akram"
+    }
+  },
+  {
+    "id": "market-11",
+    "name": "Korangi Creek Horticultural Hub",
+    "tagline": "Community nursery market for native herbs, saplings, and riverbed crops",
+    "area": "Korangi Creek",
+    "address": "Creek View Road, Near Korangi Riverbed Nurseries, Karachi",
+    "coordinates": {
+      "lat": 24.8211,
+      "lng": 67.1128
+    },
+    "image": "/images/market/Korangi.jpg",
+    "rating": 4.9,
+    "reviewsCount": 165,
+    "badge": "Grower Direct",
+    "featured": false,
+    "description": "A picturesque garden cooperative setting where urban growers and riverbed smallholders offer live potted herbs, fresh lemongrass bundles, wild mint, seasonal citrus, and farm eggs.",
+    "highlights": [
+      "Potted Herbs & Seedlings",
+      "Natural Riverbed Soil",
+      "Composting Workshop Desk",
+      "Scenic Green Nursery Stalls"
+    ],
+    "schedule": {
+      "Monday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Tuesday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Wednesday": {
+        "isOpen": true,
+        "openTime": "08:00",
+        "closeTime": "17:00",
+        "display": "8:00 AM - 5:00 PM"
+      },
+      "Thursday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Friday": {
+        "isOpen": true,
+        "openTime": "08:00",
+        "closeTime": "17:00",
+        "display": "8:00 AM - 5:00 PM"
+      },
+      "Saturday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Sunday": {
+        "isOpen": true,
+        "openTime": "08:00",
+        "closeTime": "17:00",
+        "display": "8:00 AM - 5:00 PM"
+      }
+    },
+    "produceIds": [
+      "prod-5",
+      "prod-7",
+      "prod-9",
+      "prod-15",
+      "prod-24",
+      "prod-26",
+      "prod-27",
+      "prod-28"
+    ],
+    "contact": {
+      "phone": "+92 (21) 3505-1122",
+      "email": "korangi.hub@freshfind.org",
+      "manager": "Zubaida Begum"
+    }
+  },
+  {
+    "id": "market-12",
+    "name": "Nazimabad Heritage Green Mandi",
+    "tagline": "Historic community morning bazaar with Sindh farm fresh harvests",
+    "area": "North Nazimabad",
+    "address": "Annbhai Park Periphery, Block M, North Nazimabad, Karachi",
+    "coordinates": {
+      "lat": 24.9392,
+      "lng": 67.0421
+    },
+    "image": "/images/market/North.jpg",
+    "rating": 4.8,
+    "reviewsCount": 195,
+    "badge": "Zero Middlemen",
+    "featured": false,
+    "description": "A beloved northern Karachi agricultural hub gathering over 50 regional farmer families. Renowned for crispy ridge gourds, unheated mustard oils, stone-ground flour, and fresh sugarcane molasses.",
+    "highlights": [
+      "Huge Produce Selection",
+      "Family Friendly Park Vicinity",
+      "Traditional Spices & Oils",
+      "Direct Cooperative Stalls"
+    ],
+    "schedule": {
+      "Monday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Tuesday": {
+        "isOpen": true,
+        "openTime": "07:00",
+        "closeTime": "13:30",
+        "display": "7:00 AM - 1:30 PM"
+      },
+      "Wednesday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Thursday": {
+        "isOpen": true,
+        "openTime": "07:00",
+        "closeTime": "13:30",
+        "display": "7:00 AM - 1:30 PM"
+      },
+      "Friday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Saturday": {
+        "isOpen": false,
+        "openTime": "00:00",
+        "closeTime": "00:00",
+        "display": "Closed"
+      },
+      "Sunday": {
+        "isOpen": true,
+        "openTime": "07:00",
+        "closeTime": "13:30",
+        "display": "7:00 AM - 1:30 PM"
+      }
+    },
+    "produceIds": [
+      "prod-1",
+      "prod-2",
+      "prod-6",
+      "prod-12",
+      "prod-13",
+      "prod-14",
+      "prod-17",
+      "prod-20",
+      "prod-30",
+      "prod-31"
+    ],
+    "contact": {
+      "phone": "+92 (21) 3664-9912",
+      "email": "nazimabad.mandi@freshfind.org",
+      "manager": "Rashid Mehmood"
+    }
+  }
+]
