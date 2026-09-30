@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
 import { getMarketOpenStatus } from '../utils/dateUtils';
 import { calculateDistanceKm, formatDistance } from '../utils/geoUtils';
@@ -8,6 +8,7 @@ import { MapPin, Clock, ArrowRight, Star, Navigation } from 'lucide-react';
 import produceData from '../data/produce.json';
 
 export default function MarketCard({ market }) {
+  const navigate = useNavigate();
   const { currentTime, userCoords } = useApp();
 
   const openStatus = getMarketOpenStatus(market.schedule, currentTime);
@@ -42,7 +43,10 @@ export default function MarketCard({ market }) {
     .filter(Boolean);
 
   return (
-    <article className="group bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-soft hover:shadow-card hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
+    <article
+      onClick={() => navigate(`/market/${market.id}`)}
+      className="group bg-white rounded-3xl border border-stone-200/90 overflow-hidden shadow-soft hover:shadow-card hover:-translate-y-1 transition-all duration-300 flex flex-col h-full cursor-pointer"
+    >
       {/* Thumbnail & Badges */}
       <div className="relative aspect-[16/10] overflow-hidden bg-stone-100">
         <img
@@ -55,17 +59,8 @@ export default function MarketCard({ market }) {
         {/* Gradient Overlay for badges */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
 
-        {/* Top Badges */}
-        <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
-          {/* Badge: Organic / Landmark / etc */}
-          {market.badge ? (
-            <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-900/80 backdrop-blur-md text-emerald-100 border border-emerald-400/30">
-              {market.badge}
-            </span>
-          ) : (
-            <span></span>
-          )}
-
+        {/* Top Actions */}
+        <div className="absolute top-3 right-3 z-10">
           {/* Bookmark Button */}
           <BookmarkButton type="market" id={market.id} size="md" />
         </div>
@@ -119,9 +114,7 @@ export default function MarketCard({ market }) {
 
         {/* Title */}
         <h3 className="font-extrabold text-lg text-stone-900 group-hover:text-emerald-700 transition-colors line-clamp-1 mb-1.5">
-          <Link to={`/market/${market.id}`} className="hover:underline">
-            {market.name}
-          </Link>
+          {market.name}
         </h3>
 
         {/* Short Description */}
@@ -162,13 +155,12 @@ export default function MarketCard({ market }) {
         )}
 
         {/* View Details Action Button */}
-        <Link
-          to={`/market/${market.id}`}
-          className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-emerald-50 text-emerald-800 font-bold text-sm hover:bg-emerald-600 hover:text-white transition-all duration-200 group-hover:shadow-sm"
+        <div
+          className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-emerald-50 text-emerald-800 font-bold text-sm group-hover:bg-emerald-600 group-hover:text-white transition-all duration-200 group-hover:shadow-sm"
         >
           <span>View Market Details</span>
           <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-        </Link>
+        </div>
       </div>
     </article>
   );

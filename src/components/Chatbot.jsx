@@ -13,20 +13,43 @@ import {
 } from 'lucide-react';
 import chatbotData from '../data/chatbot.json';
 
+const CHAT_STORAGE_KEY = 'freshfind_chat_history_v1';
+const WELCOME_MESSAGE = {
+  id: 'welcome',
+  sender: 'bot',
+  text: "Hello! Welcome to FreshFind — Fresh All Along! 🌿 How can I help you discover fresh local farmers markets or seasonal produce today?",
+  suggestions: chatbotData.quickSuggestions.slice(0, 3)
+};
+
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
-  const [messages, setMessages] = useState([
-    {
-      id: 'welcome',
-      sender: 'bot',
-      text: "Hello! Welcome to FreshFind — Fresh All Along! 🌿 How can I help you discover fresh local farmers markets or seasonal produce today?",
-      suggestions: chatbotData.quickSuggestions.slice(0, 3)
+  const [messages, setMessages] = useState(() => {
+    try {
+      const saved = localStorage.getItem(CHAT_STORAGE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return parsed;
+        }
+      }
+    } catch (err) {
+      console.warn('Could not load chat history:', err);
     }
-  ]);
+    return [WELCOME_MESSAGE];
+  });
 
   const messagesEndRef = useRef(null);
   const navigate = useNavigate();
+
+  // Save messages to localStorage whenever conversation updates
+  useEffect(() => {
+    try {
+      localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages));
+    } catch (err) {
+      console.warn('Could not persist chat history:', err);
+    }
+  }, [messages]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -123,14 +146,20 @@ export default function Chatbot() {
   };
 
   const clearChat = () => {
-    setMessages([
+    const resetMessage = [
       {
         id: 'welcome-reset',
         sender: 'bot',
         text: "Conversation cleared. Feel free to ask about markets, open hours, or seasonal produce!",
         suggestions: chatbotData.quickSuggestions.slice(0, 3)
       }
-    ]);
+    ];
+    setMessages(resetMessage);
+    try {
+      localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(resetMessage));
+    } catch (err) {
+      console.warn('Could not reset chat storage:', err);
+    }
   };
 
   return (
